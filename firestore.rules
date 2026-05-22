@@ -1,0 +1,81 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Données utilisateur ──────────────────────────────────────
+    // Chaque utilisateur accède uniquement à ses propres données
+    match /users/{userId}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Aliments personnalisés ───────────────────────────────────
+    match /users/{userId}/custom_foods/{foodId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Journal alimentaire ──────────────────────────────────────
+    match /users/{userId}/journal/{dayId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Poids ────────────────────────────────────────────────────
+    match /users/{userId}/poids/{entryId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Séances / Programmes ─────────────────────────────────────
+    match /users/{userId}/seances/{seanceId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    match /users/{userId}/programmes/{progId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Recettes ─────────────────────────────────────────────────
+    match /users/{userId}/recettes/{recetteId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Profil utilisateur ───────────────────────────────────────
+    match /users/{userId}/profil/{doc} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // ── Amis (liste par user) ────────────────────────────────────
+    match /users/{userId}/amis/{friendId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+      // L'ami peut confirmer son propre lien (marquer pending:false côté expéditeur)
+      allow update: if request.auth != null && request.auth.uid == friendId;
+    }
+
+    // ── Demandes d'amis ──────────────────────────────────────────
+    // Le destinataire peut lire et supprimer ses demandes
+    // L'expéditeur (requesterId) peut créer une demande dans le profil d'un autre
+    match /users/{userId}/friendRequests/{requesterId} {
+      allow read, delete: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null && request.auth.uid == requesterId
+                    && request.resource.data.fromUid == request.auth.uid;
+    }
+
+    // ── Pseudos — lookup pseudo → uid (lisible par tous les connectés)
+    match /pseudos/{pseudo} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow update: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow delete: if request.auth != null && resource.data.uid == request.auth.uid;
+    }
+
+    // ── Profils publics — données partagées (lisibles par tous les connectés)
+    match /publicProfiles/{uid} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null && request.auth.uid == uid;
+    }
+
+    // Tout le reste est interdit
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

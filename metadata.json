@@ -1,0 +1,8 @@
+{
+  "name": "ONARI FITNESS",
+  "description": "Une application de fitness complète avec suivi d'entraînement, nutrition, et coach IA personnalisé.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

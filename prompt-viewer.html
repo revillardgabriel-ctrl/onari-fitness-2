@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONARI FITNESS — Prompt de Contexte</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #ffffff;
+      line-height: 1.7;
+      padding: 24px 16px 60px;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 40px 0 32px;
+      border-bottom: 1px solid #2a2a2a;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #B0FF00;
+      letter-spacing: -0.5px;
+    }
+    .header p {
+      color: #8e8e93;
+      margin-top: 8px;
+      font-size: 0.95rem;
+    }
+    .badge {
+      display: inline-block;
+      background: #1c1c1e;
+      color: #B0FF00;
+      border: 1px solid #B0FF0033;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.8rem;
+      margin-top: 12px;
+    }
+
+    /* TOC */
+    .toc {
+      background: #1c1c1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+    }
+    .toc h3 {
+      color: #8e8e93;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+    .toc ul { list-style: none; }
+    .toc li { margin: 6px 0; }
+    .toc a {
+      color: #00D4FF;
+      text-decoration: none;
+      font-size: 0.92rem;
+    }
+    .toc a:hover { color: #B0FF00; }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #B0FF00;
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 20px 0 10px;
+    }
+
+    h4 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: #00D4FF;
+      margin: 16px 0 8px;
+    }
+
+    p {
+      color: #d1d1d6;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+      color: #d1d1d6;
+      font-size: 0.95rem;
+    }
+
+    li { margin: 4px 0; }
+
+    strong { color: #ffffff; }
+
+    /* Cards */
+    .card {
+      background: #1c1c1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    /* Role table */
+    .role-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 0.9rem;
+    }
+    .role-table th {
+      background: #252525;
+      color: #8e8e93;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .role-table td {
+      padding: 10px 14px;
+      border-top: 1px solid #2a2a2a;
+      color: #d1d1d6;
+    }
+    .role-table tr:hover td { background: #222222; }
+
+    /* Nav pills */
+    .nav-pills {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .nav-pill {
+      background: #252525;
+      border: 1px solid #333;
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 0.82rem;
+      color: #d1d1d6;
+    }
+    .nav-pill.active {
+      background: #B0FF0020;
+      border-color: #B0FF00;
+      color: #B0FF00;
+    }
+
+    /* Code blocks */
+    pre {
+      background: #111111;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 16px;
+      overflow-x: auto;
+      margin: 12px 0;
+      font-size: 0.82rem;
+    }
+    code {
+      font-family: 'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', monospace;
+      color: #B0FF00;
+    }
+    pre code { color: #d1d1d6; }
+    .keyword { color: #00D4FF; }
+    .string { color: #B0FF00; }
+    .comment { color: #555; }
+
+    /* Coaching table */
+    .conseil-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 0.85rem;
+    }
+    .conseil-table th {
+      background: #252525;
+      color: #8e8e93;
+      padding: 8px 12px;
+      text-align: left;
+      font-size: 0.75rem;
+    }
+    .conseil-table td {
+      padding: 8px 12px;
+      border-top: 1px solid #222;
+      color: #d1d1d6;
+    }
+
+    /* Badges */
+    .badges-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 10px;
+      margin: 12px 0;
+    }
+    .badge-card {
+      background: #1c1c1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 0.85rem;
+    }
+    .badge-card .level { color: #8e8e93; font-size: 0.75rem; margin-bottom: 4px; }
+    .badge-card .name { color: #fff; font-weight: 600; }
+    .badge-card .condition { color: #8e8e93; font-size: 0.78rem; margin-top: 4px; }
+
+    /* CSS vars display */
+    .css-vars {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 8px;
+      margin: 12px 0;
+    }
+    .css-var {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #1c1c1e;
+      border: 1px solid #2a2a2a;
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+    .color-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .css-var-name { font-size: 0.78rem; color: #8e8e93; }
+    .css-var-value { font-size: 0.8rem; color: #d1d1d6; font-family: monospace; }
+
+    /* Hierarchy */
+    .hierarchy {
+      background: #111;
+      border: 1px solid #2a2a2a;
+      border-radius: 12px;
+      padding: 16px;
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: #d1d1d6;
+      line-height: 1.8;
+    }
+    .hierarchy .hl { color: #B0FF00; }
+    .hierarchy .hl2 { color: #00D4FF; }
+    .hierarchy .hl3 { color: #FFA726; }
+
+    /* Chips */
+    .chip {
+      display: inline-block;
+      background: #252525;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
+      color: #d1d1d6;
+      margin: 2px;
+      font-family: monospace;
+    }
+
+    /* Tips */
+    .tip {
+      background: #B0FF0010;
+      border: 1px solid #B0FF0030;
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin: 16px 0;
+      font-size: 0.9rem;
+      color: #d1d1d6;
+    }
+    .tip strong { color: #B0FF00; }
+
+    /* Divider */
+    hr {
+      border: none;
+      border-top: 1px solid #2a2a2a;
+      margin: 32px 0;
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #111; }
+    ::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <h1>&#127947; ONARI FITNESS</h1>
+    <p>Prompt de Contexte — Architecture &amp; Logique Applicative</p>
+    <span class="badge">Version 1.0</span>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc">
+    <h3>Table des mati&egrave;res</h3>
+    <ul>
+      <li><a href="#role">&#129504; R&ocirc;le &amp; R&eacute;partition</a></li>
+      <li><a href="#presentation">&#128241; Pr&eacute;sentation G&eacute;n&eacute;rale</a></li>
+      <li><a href="#navigation">&#128202; Architecture de Navigation</a></li>
+      <li><a href="#resume">&#127968; Section 1 — R&eacute;sum&eacute;</a></li>
+      <li><a href="#training">&#128170; Section 2 — Training</a></li>
+      <li><a href="#prog">&#128203; Section 3 — Prog</a></li>
+      <li><a href="#nutrition">&#127822; Section 4 — Nutrition</a></li>
+      <li><a href="#profil">&#128100; Section 5 — Profil</a></li>
+      <li><a href="#technique">&#9881;&#65039; Architecture Technique</a></li>
+    </ul>
+  </div>
+
+  <!-- ROLE -->
+  <section id="role">
+    <h2>&#129504; R&ocirc;le &amp; R&eacute;partition des Outils</h2>
+    <table class="role-table">
+      <tr>
+        <th>T&acirc;che</th>
+        <th>Outil</th>
+      </tr>
+      <tr>
+        <td>&#129504; Logique, algorithmes, donn&eacute;es, structure JavaScript</td>
+        <td><strong style="color:#B0FF00">Claude / IA backend</strong></td>
+      </tr>
+      <tr>
+        <td>&#127912; Interface graphique, CSS, design, animations</td>
+        <td><strong style="color:#00D4FF">Google AI Studio (frontend)</strong></td>
+      </tr>
+    </table>
+    <div class="tip">
+      <strong>R&egrave;gle principale :</strong> Claude g&egrave;re exclusivement la logique back-end &mdash; JavaScript, algorithmes, localStorage, debugging, int&eacute;gration de fonctionnalit&eacute;s. Google AI Studio prend en charge le CSS, les animations et les layouts visuels.
+    </div>
+  </section>
+
+  <!-- PRESENTATION -->
+  <section id="presentation">
+    <h2>&#128241; Pr&eacute;sentation G&eacute;n&eacute;rale</h2>
+    <div class="card">
+      <p><strong>ONARI FITNESS</strong> est une application de coaching et suivi sportif <strong>mobile-first</strong>, inspir&eacute;e de l'interface iOS (design sombre, pill anim&eacute;e, cartes arrondies). Elle fonctionne enti&egrave;rement en local gr&acirc;ce &agrave; <code>localStorage</code> — aucun serveur, aucune base de donn&eacute;es externe.</p>
+      <br>
+      <p>&#127381; <strong>Technologie</strong> : HTML5 / CSS3 / JavaScript vanilla</p>
+      <p>&#128190; <strong>Persistance</strong> : <code>localStorage</code></p>
+      <p>&#127912; <strong>Design</strong> : Dark mode, iOS-inspired, glassmorphism</p>
+      <p>&#128203; <strong>Architecture</strong> : Single-page application (SPA), fichier HTML unique</p>
+    </div>
+  </section>
+
+  <!-- NAVIGATION -->
+  <section id="navigation">
+    <h2>&#128202; Architecture de Navigation</h2>
+    <p>L'application comporte <strong>5 sections principales</strong> accessibles via la barre de navigation du bas avec une <strong>pill anim&eacute;e</strong> qui se d&eacute;place horizontalement.</p>
+    <div class="nav-pills">
+      <div class="nav-pill active">&#127968; R&eacute;sum&eacute; (0)</div>
+      <div class="nav-pill">&#128170; Training (1)</div>
+      <div class="nav-pill">&#128203; Prog (2)</div>
+      <div class="nav-pill">&#127822; Nutrition (3)</div>
+      <div class="nav-pill">&#128100; Profil (4)</div>
+    </div>
+    <p>Chaque section correspond &agrave; un <code>div</code> :</p>
+    <div style="margin:12px 0">
+      <span class="chip">id="page-resume"</span>
+      <span class="chip">id="page-training"</span>
+      <span class="chip">id="page-prog"</span>
+      <span class="chip">id="page-nutrition"</span>
+      <span class="chip">id="page-profil"</span>
+    </div>
+    <p>La fonction <code>showPage(pageName)</code> g&egrave;re l'affichage/masquage et le d&eacute;placement de la pill.</p>
+  </section>
+
+  <!-- RESUME -->
+  <section id="resume">
+    <h2>&#127968; Section 1 — R&eacute;sum&eacute;</h2>
+    <div class="card">
+      <h4>R&ocirc;le</h4>
+      <p>Page d'accueil. Donne un aper&ccedil;u rapide de la journ&eacute;e et de la semaine.</p>
+      <h4>Contenu</h4>
+      <ul>
+        <li>Titre "R&eacute;sum&eacute;" + sous-titre "Aper&ccedil;u de ta journ&eacute;e"</li>
+        <li>Widgets personnalisables via <code>#widgets-container</code></li>
+        <li>Anneaux d'activit&eacute; (style Apple Watch) : calories, dur&eacute;e, fr&eacute;quence</li>
+        <li>R&eacute;sum&eacute; du programme actif : nom, semaine en cours, prochaine s&eacute;ance</li>
+        <li>Raccourcis rapides vers les autres sections</li>
+      </ul>
+      <h4>Donn&eacute;es localStorage</h4>
+      <ul>
+        <li>Programme actif (nom, semaine active, prochaine s&eacute;ance)</li>
+        <li>Historique des s&eacute;ances r&eacute;centes</li>
+        <li>Objectifs caloriques et macros du jour</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section id="training">
+    <h2>&#128170; Section 2 — Training</h2>
+
+    <h3>Sous-&eacute;tats internes</h3>
+    <div class="card">
+      <p><strong>1. Vue Programme</strong> — Si aucun programme actif &rarr; message d'invitation</p>
+      <p><strong>2. Vue S&eacute;ance du jour</strong> — Exercices selon le programme actif et la semaine</p>
+      <p><strong>3. Vue Tracking Exercice</strong> — Saisie en temps r&eacute;el (s&eacute;ries, reps, poids, RPE)</p>
+      <p><strong>4. Vue Fin de S&eacute;ance</strong> — R&eacute;capitulatif apr&egrave;s validation</p>
+    </div>
+
+    <h3>Syst&egrave;me de Badge Coaching</h3>
+    <p>Affiche une <strong>bulle de conseil intelligent</strong> au-dessus de chaque s&eacute;rie bas&eacute;e sur les performances de la semaine pr&eacute;c&eacute;dente.</p>
+    <table class="conseil-table">
+      <tr>
+        <th>Condition</th>
+        <th>Conseil</th>
+        <th>Couleur</th>
+      </tr>
+      <tr>
+        <td><code>reps &ge; maxReps</code> ET <code>rpe &le; 8</code></td>
+        <td>&#128170; Augmente le poids (+5kg)</td>
+        <td><span style="color:#B0FF00">&#9679; Vert #B0FF00</span></td>
+      </tr>
+      <tr>
+        <td><code>reps &le; minReps</code> ET <code>rpe &ge; 9</code></td>
+        <td>&#9888;&#65039; R&eacute;duis le poids (-5kg)</td>
+        <td><span style="color:#FFA726">&#9679; Orange #FFA726</span></td>
+      </tr>
+      <tr>
+        <td><code>rpe &ge; 9</code> ET reps dans la fourchette</td>
+        <td>&#128161; Gratte 1 rep suppl&eacute;mentaire</td>
+        <td><span style="color:#00D4FF">&#9679; Bleu #00D4FF</span></td>
+      </tr>
+      <tr>
+        <td>Tous les autres cas</td>
+        <td>&#9989; Continue comme &ccedil;a</td>
+        <td><span style="color:#9E9E9E">&#9679; Gris #9E9E9E</span></td>
+      </tr>
+    </table>
+
+    <h3>Structure d'une s&eacute;ance sauvegard&eacute;e</h3>
+    <pre><code>{
+  programmeId: "uuid",
+  semaine: 3,
+  date: "2025-02-01",
+  exercices: [
+    {
+      nom: "D&eacute;velopp&eacute; Couch&eacute;",
+      series: [
+        { poids: 80, reps: 10, rpe: 7, validee: true },
+        { poids: 80, reps: 9, rpe: 8, validee: true }
+      ]
+    }
+  ]
+}</code></pre>
+  </section>
+
+  <!-- PROG -->
+  <section id="prog">
+    <h2>&#128203; Section 3 — Prog</h2>
+
+    <h3>Sous-pages</h3>
+    <ul>
+      <li><strong>3.1 Liste des Programmes</strong> — Affichage, cr&eacute;ation, suppression</li>
+      <li><strong>3.2 Cr&eacute;ation d'un Programme</strong> — Formulaire complet</li>
+      <li><strong>3.3 D&eacute;tail du Programme</strong> — Blocs &rarr; S&eacute;ances &rarr; Exercices</li>
+      <li><strong>3.4 Biblioth&egrave;que d'Exercices</strong> — 650+ exercices, filtrage adaptatif</li>
+      <li><strong>3.5 Coach IA</strong> — Chat IA int&eacute;gr&eacute; (GPT-4o-mini / Claude)</li>
+    </ul>
+
+    <h3>Hirarchie des donn&eacute;es</h3>
+    <div class="hierarchy">
+      <span class="hl">Programme</span><br>
+      &nbsp;&nbsp;&#9492;&#9472;&#9472; <span class="hl2">Bloc 1</span> (ex: "Semaine 1-4 - Accumulation")<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; <span class="hl3">S&eacute;ance A</span> (ex: "Push - Poitrine/&Eacute;paules")<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; Exercice 1 : D&eacute;velopp&eacute; Couch&eacute;<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; S&eacute;ries : 4<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; Reps : 8-12<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; Repos : 90s<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; Poids initial : 80kg<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9500;&#9472;&#9472; RPE cible : 7-8<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#9492;&#9472;&#9472; Notes : "Descente contr&ocirc;l&eacute;e"
+    </div>
+
+    <h3>Cat&eacute;gories d'exercices (650+)</h3>
+    <div class="badges-grid">
+      <div class="badge-card"><div class="name">&#128170; Pecs</div><div class="condition">D&eacute;velopp&eacute; couch&eacute;, &Eacute;cart&eacute;, Dips</div></div>
+      <div class="badge-card"><div class="name">&#128154; Dos</div><div class="condition">Tractions, Rowing, Tirage</div></div>
+      <div class="badge-card"><div class="name">&#129461; Jambes</div><div class="condition">Squat, Leg Press, Fentes</div></div>
+      <div class="badge-card"><div class="name">&#9968;&#65039; &Eacute;paules</div><div class="condition">D&eacute;velopp&eacute; militaire, &Eacute;l&eacute;vations</div></div>
+      <div class="badge-card"><div class="name">&#128170; Bras</div><div class="condition">Curl biceps, Triceps extension</div></div>
+      <div class="badge-card"><div class="name">&#128306; Abdos</div><div class="condition">Planche, Crunch, Leg raise</div></div>
+      <div class="badge-card"><div class="name">&#127939; Cardio</div><div class="condition">Course, V&eacute;lo, Rameur</div></div>
+      <div class="badge-card"><div class="name">&#129340; Mobilit&eacute;</div><div class="condition">&Eacute;tirements, Yoga, Foam roller</div></div>
+    </div>
+  </section>
+
+  <!-- NUTRITION -->
+  <section id="nutrition">
+    <h2>&#127822; Section 4 — Nutrition</h2>
+    <div class="card">
+      <h4>Tableau de bord</h4>
+      <ul>
+        <li>Calories du jour : consomm&eacute;es vs objectif (barre circulaire)</li>
+        <li>&#128308; Prot&eacute;ines / &#128993; Glucides / &#128994; Lipides (g)</li>
+        <li>&#128167; Hydratation : verres d'eau (objectif 8/jour)</li>
+      </ul>
+      <h4>Journal alimentaire</h4>
+      <ul>
+        <li>&#127749; Petit-d&eacute;jeuner | &#9728;&#65039; D&eacute;jeuner | &#127769; D&icirc;ner | &#127822; Collations</li>
+        <li>Recherche d'aliments, ajout personnalis&eacute;, historique fr&eacute;quents</li>
+      </ul>
+    </div>
+    <pre><code>// Cl&eacute; : onariNutritionJournal
+{
+  date: "2025-02-01",
+  objectifCalories: 2500,
+  objectifProteines: 180,
+  objectifGlucides: 300,
+  objectifLipides: 70,
+  repas: [
+    {
+      moment: "petit-dejeuner",
+      aliments: [
+        { nom: "Flocons d'avoine", quantite: 80, calories: 296,
+          proteines: 10, glucides: 48, lipides: 5 }
+      ]
+    }
+  ]
+}</code></pre>
+  </section>
+
+  <!-- PROFIL -->
+  <section id="profil">
+    <h2>&#128100; Section 5 — Profil</h2>
+    <div class="card">
+      <h4>Informations personnelles</h4>
+      <p>Avatar, Nom, &Acirc;ge, Taille, Poids, Objectif (hypertrophie / s&egrave;che / force / endurance / bien-&ecirc;tre)</p>
+      <h4>Statistiques globales</h4>
+      <ul>
+        <li>Nombre total de s&eacute;ances r&eacute;alis&eacute;es</li>
+        <li>Volume total soulev&eacute; (en tonnes)</li>
+        <li>S&eacute;rie de jours cons&eacute;cutifs (streak)</li>
+        <li>Records personnels (PRs) par exercice</li>
+      </ul>
+    </div>
+
+    <h3>Syst&egrave;me de Badges (8 niveaux)</h3>
+    <div class="badges-grid">
+      <div class="badge-card">
+        <div class="level">Niveau 1</div>
+        <div class="name">&#129515; D&eacute;butant</div>
+        <div class="condition">1&egrave;re s&eacute;ance compl&eacute;t&eacute;e</div>
+      </div>
+      <div class="badge-card">
+        <div class="level">Niveau 2</div>
+        <div class="name">&#129514; R&eacute;gulier</div>
+        <div class="condition">10 s&eacute;ances</div>
+      </div>
+      <div class="badge-card">
+        <div class="level">Niveau 3</div>
+        <div class="name">&#129513; Assidu</div>
+        <div class="condition">30 s&eacute;ances</div>
+      </div>
+      <div class="badge-card">
+        <div class="level">Niveau 4</div>
+        <div class="name">&#128170; S&eacute;rieux</div>
+        <div class="condition">50 s&eacute;ances + 1 PR</div>
+      </div>
+      <div class="badge-card">
+        <div class="level">Niveau 5</div>
+        <div class="name">&#128293; Warrior</div>
+        <div class="condition">100 s&eacute;ances</div>
+      </div>
+      <div class="badge-card">
+        <div class="level">Niveau 6</div>
+        <div class="name">&#9889; Elite</div>
+        <div class="condition">Volume &gt; 100 tonnes</div>
+      </div>
+      <div class="badge-card">
+        <div class="level">Niveau 7</div>
+        <div class="name">&#128081; Champion</div>
+        <div class="condition">6 mois cons&eacute;cutifs</div>
+      </div>
+      <div class="badge-card">
+        <div class="level">Niveau 8</div>
+        <div class="name">&#127942; L&eacute;gendaire</div>
+        <div class="condition">Objectif final atteint</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNIQUE -->
+  <section id="technique">
+    <h2>&#9881;&#65039; Architecture Technique Globale</h2>
+
+    <h3>Cl&eacute;s localStorage</h3>
+    <div style="margin:12px 0">
+      <span class="chip">onariFitnessProgrammes</span>
+      <span class="chip">onariUserProfile</span>
+      <span class="chip">onariNutritionJournal</span>
+      <span class="chip">onariSeancesHistory</span>
+    </div>
+
+    <h3>Fonctions globales</h3>
+    <pre><code>showPage(pageName)         // Navigation entre les 5 sections
+showToast(message)         // Notification temporaire
+generateId()               // G&eacute;n&eacute;ration d'UUID unique
+formatDate(date)           // Formatage de dates FR
+sauvegarderProgramme(prog) // Sauvegarde dans localStorage
+chargerProgrammes()        // Chargement depuis localStorage
+sauvegarderSeance(data)    // Sauvegarde d'une s&eacute;ance termin&eacute;e</code></pre>
+
+    <h3>Variables CSS globales</h3>
+    <div class="css-vars">
+      <div class="css-var">
+        <div class="color-dot" style="background:#0a0a0a;border:1px solid #333"></div>
+        <div><div class="css-var-name">--bg-dark</div><div class="css-var-value">#0a0a0a</div></div>
+      </div>
+      <div class="css-var">
+        <div class="color-dot" style="background:#1c1c1e"></div>
+        <div><div class="css-var-name">--card-bg</div><div class="css-var-value">#1c1c1e</div></div>
+      </div>
+      <div class="css-var">
+        <div class="color-dot" style="background:#B0FF00"></div>
+        <div><div class="css-var-name">--accent-green</div><div class="css-var-value">#B0FF00</div></div>
+      </div>
+      <div class="css-var">
+        <div class="color-dot" style="background:#00D4FF"></div>
+        <div><div class="css-var-name">--accent-blue</div><div class="css-var-value">#00D4FF</div></div>
+      </div>
+      <div class="css-var">
+        <div class="color-dot" style="background:#FFA726"></div>
+        <div><div class="css-var-name">--accent-orange</div><div class="css-var-value">#FFA726</div></div>
+      </div>
+      <div class="css-var">
+        <div class="color-dot" style="background:#FF3B30"></div>
+        <div><div class="css-var-name">--accent-red</div><div class="css-var-value">#FF3B30</div></div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h3>Rappels pour chaque intervention</h3>
+    <div class="tip">
+      <strong>1.</strong> Tu g&egrave;res la logique — algo, JS, data structures, debugging<br>
+      <strong>2.</strong> Google AI Studio g&egrave;re le visuel — sauf si demande explicite<br>
+      <strong>3.</strong> Respecte l'architecture existante — localStorage, single-file, vanilla JS<br>
+      <strong>4.</strong> Toujours tester la compatibilit&eacute; avec les donn&eacute;es existantes dans localStorage<br>
+      <strong>5.</strong> Quand tu modifies du code, pr&eacute;sente uniquement les blocs JS/HTML modifi&eacute;s<br>
+      <strong>6.</strong> Priorit&eacute; &agrave; la simplicit&eacute; — solutions directes et fonctionnelles
+    </div>
+  </section>
+
+</div>
+</body>
+</html>

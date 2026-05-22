@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Onari Fitness — App Store Carousels v2 (D.A. native)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{background:#06070d;font-family:'Lexend',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;color:#fff;}
+.toolbar{position:sticky;top:0;z-index:1000;background:rgba(6,7,13,0.92);backdrop-filter:blur(20px);padding:24px 32px;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;justify-content:space-between;align-items:center;gap:24px;}
+.toolbar h1{font-size:18px;font-weight:700;letter-spacing:-0.01em;}
+.toolbar .info{font-size:13px;color:rgba(255,255,255,0.55);font-weight:400;}
+.actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn{padding:12px 22px;border-radius:14px;border:1px solid rgba(255,255,255,0.10);background:rgba(255,255,255,0.05);color:#fff;font-family:'Lexend';font-weight:600;font-size:14px;cursor:pointer;transition:all .15s;}
+.btn:hover{background:rgba(255,255,255,0.09);}
+.btn.primary{background:linear-gradient(180deg,#7EE6F2 0%,#3DC9E8 100%);color:#062029;border:none;box-shadow:0 8px 24px rgba(125,230,242,0.25);}
+.gallery{padding:40px 32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;max-width:1900px;margin:0 auto;}
+.thumb{position:relative;}
+.thumb-frame{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:24px;overflow:hidden;position:relative;aspect-ratio:1290/2796;}
+.thumb-label{display:flex;justify-content:space-between;align-items:center;padding:14px 4px 0;}
+.thumb-label .num{font-size:11px;color:rgba(255,255,255,0.45);letter-spacing:0.22em;font-weight:600;text-transform:uppercase;}
+.thumb-label .title{font-size:14px;font-weight:600;color:#fff;}
+.thumb-label .dl{font-size:12px;padding:7px 14px;border-radius:9px;background:rgba(125,230,242,0.10);border:1px solid rgba(125,230,242,0.30);color:#7DE6F2;cursor:pointer;font-weight:600;}
+.thumb-label .dl:hover{background:rgba(125,230,242,0.16);}
+
+/* ═══════════════════ SHARED VISUAL ═══════════════════ */
+.visual{
+  width:1290px;height:2796px;position:relative;overflow:hidden;
+  font-family:'Lexend',sans-serif;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(13,223,242,0.10) 0%, transparent 32%),
+    radial-gradient(circle at 88% 88%, rgba(168,85,247,0.08) 0%, transparent 30%),
+    linear-gradient(160deg, #0a0e1a 0%, #111827 100%);
+}
+.dots{position:absolute;inset:0;pointer-events:none;opacity:0.4;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 32px 32px;}
+
+/* Header zone */
+.head {position:absolute;top:170px;left:0;right:0;padding:0 100px;z-index:5;}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;padding:18px 30px;border-radius:999px;
+  background:rgba(13,223,242,0.10);border:1px solid rgba(13,223,242,0.30);
+  color:#7DE6F2;font-weight:600;font-size:28px;letter-spacing:0.10em;margin-bottom:44px;text-transform:uppercase;}
+.eyebrow::before{content:'';width:14px;height:14px;border-radius:50%;background:#7DE6F2;box-shadow:0 0 16px rgba(125,230,242,0.8);}
+.h1{font-weight:800;font-size:156px;line-height:0.92;letter-spacing:-0.045em;color:#fff;margin-bottom:38px;}
+.h1 .accent{color:#7DE6F2;}
+.h1 .accent-mint{color:#69F6B8;}
+.h1 .accent-purple{color:#C084FC;}
+.sub{font-weight:400;font-size:42px;line-height:1.40;color:rgba(229,231,235,0.78);max-width:1040px;letter-spacing:-0.005em;}
+
+/* Onari mark + page num */
+.markrow{position:absolute;top:80px;left:0;right:0;padding:0 100px;display:flex;justify-content:space-between;align-items:center;z-index:6;}
+.mark{font-weight:800;font-size:36px;letter-spacing:0.32em;color:rgba(255,255,255,0.92);}
+.pgnum{font-weight:500;font-size:24px;letter-spacing:0.30em;color:rgba(255,255,255,0.45);}
+
+/* Phone */
+.phonewrap{position:absolute;left:50%;transform:translateX(-50%);bottom:160px;width:820px;height:1680px;}
+.phone-glow{position:absolute;inset:-180px;background:radial-gradient(ellipse 55% 45% at 50% 55%, rgba(13,223,242,0.30) 0%, rgba(13,223,242,0) 60%);filter:blur(40px);z-index:1;}
+.phone{position:relative;z-index:2;width:100%;height:100%;background:#0a0a0a;border-radius:104px;padding:18px;
+  box-shadow:inset 0 0 0 2px rgba(255,255,255,0.10),inset 0 0 0 6px #000,inset 0 0 0 8px rgba(255,255,255,0.06),
+    0 80px 140px rgba(0,0,0,0.6),0 0 80px rgba(13,223,242,0.10);}
+.screen{width:100%;height:100%;border-radius:86px;overflow:hidden;position:relative;background:#0a0e1a;}
+.notch{position:absolute;top:32px;left:50%;transform:translateX(-50%);width:290px;height:44px;background:#000;border-radius:24px;z-index:10;}
+.statusbar{height:100px;display:flex;align-items:flex-end;justify-content:space-between;padding:0 60px 24px;color:#fff;font-weight:600;font-size:30px;font-family:-apple-system,'SF Pro Display',sans-serif;}
+.icons{display:flex;gap:12px;align-items:center;font-size:24px;}
+.appbg{
+  background:
+    radial-gradient(circle at 18% 12%, rgba(13,223,242,0.06) 0%, transparent 35%),
+    radial-gradient(circle at 88% 92%, rgba(168,85,247,0.06) 0%, transparent 35%),
+    linear-gradient(160deg, #0a0e1a 0%, #111827 100%);
+  height:calc(100% - 100px);
+  padding:34px 38px 38px;
+  display:flex;flex-direction:column;
+  position:relative;
+}
+.appbg::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);background-size:28px 28px;opacity:0.5;pointer-events:none;}
+.appbg > * {position:relative;z-index:1;}
+.mso{font-family:'Material Symbols Outlined';font-weight:300;font-style:normal;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;direction:ltr;-webkit-font-feature-settings:'liga';font-feature-settings:'liga';-webkit-font-smoothing:antialiased;font-variation-settings:'FILL' 0,'wght' 300,'GRAD' 0,'opsz' 24;}
+
+/* Footer bar */
+.foot{position:absolute;bottom:62px;left:0;right:0;text-align:center;color:rgba(255,255,255,0.40);font-size:22px;letter-spacing:0.28em;font-weight:500;text-transform:uppercase;}
+.foot span{color:#7DE6F2;}
+
+/* CTA app */
+.ctaApp{margin-top:auto;background:linear-gradient(180deg,#7DE6F2 0%,#3DC9E8 100%);color:#062029;font-weight:700;font-size:36px;padding:30px;border-radius:28px;display:flex;align-items:center;justify-content:center;gap:14px;box-shadow:0 18px 40px rgba(125,230,242,0.30);letter-spacing:-0.01em;}
+.ctaApp .mso{font-size:36px;}
+
+/* Apple-Watch Activity Ring SVG defs reused */
+.ring-red{stroke:#FA114F;} .ring-green{stroke:#7DE658;} .ring-blue{stroke:#00C7FF;}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <div>
+    <h1>Onari Fitness · Carrousels App Store v2</h1>
+    <div class="info">D.A. native · 8 visuels · 1290×2796 · Lexend · Cyan #7DE6F2 + Mint #69F6B8</div>
+  </div>
+  <div class="actions">
+    <button class="btn" onclick="downloadAll()">ZIP des 8 PNG</button>
+    <button class="btn primary" onclick="downloadAllPNG()">Télécharger les 8 PNG</button>
+  </div>
+</div>
+
+<div class="gallery" id="gallery"></div>
+
+<div id="visuals-source" style="position:absolute;left:-99999px;top:0;">
+
+<!-- ═══════════════ 01 — HERO 60S ═══════════════ -->
+<div class="visual" id="v1" data-title="60 secondes">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">01 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow">Programme IA · 60 secondes</div>
+    <div class="h1">Ton plan fitness<br>en <span class="accent">60 secondes.</span></div>
+    <div class="sub">5 questions. L'IA construit ton programme sur-mesure. Tu t'entraînes dès aujourd'hui.</div>
+  </div>
+  <div class="phonewrap"><div class="phone-glow"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:28px;">
+        <div>
+          <div style="font-size:24px;font-weight:500;color:rgba(255,255,255,0.55);letter-spacing:0.16em;text-transform:uppercase;margin-bottom:8px;">Question 3 / 5</div>
+          <div style="font-weight:800;font-size:64px;color:#fff;letter-spacing:-0.03em;line-height:1.05;">Ton objectif ?</div>
+        </div>
+        <div style="width:74px;height:74px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;color:#7DE6F2;"><span class="mso" style="font-size:34px;">close</span></div>
+      </div>
+      <div style="height:8px;background:rgba(255,255,255,0.06);border-radius:4px;overflow:hidden;margin-bottom:48px;">
+        <div style="width:60%;height:100%;background:linear-gradient(90deg,#7DE6F2,#3DC9E8);border-radius:4px;"></div>
+      </div>
+      <!-- choices -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div style="background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.10);border-radius:32px;padding:28px 32px;display:flex;align-items:center;gap:24px;">
+          <div style="width:84px;height:84px;border-radius:24px;background:rgba(250,17,79,0.14);display:flex;align-items:center;justify-content:center;color:#FA5B7B;"><span class="mso" style="font-size:42px;">local_fire_department</span></div>
+          <div style="flex:1;">
+            <div style="color:#fff;font-weight:600;font-size:32px;letter-spacing:-0.01em;">Perdre du gras</div>
+            <div style="color:rgba(255,255,255,0.50);font-size:22px;font-weight:400;margin-top:4px;">Sèche · cardio · déficit calorique</div>
+          </div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(125,230,242,0.16) 0%,rgba(125,230,242,0.06) 100%);border:1.5px solid rgba(125,230,242,0.50);border-radius:32px;padding:28px 32px;display:flex;align-items:center;gap:24px;box-shadow:0 0 50px rgba(125,230,242,0.18);">
+          <div style="width:84px;height:84px;border-radius:24px;background:linear-gradient(180deg,#7DE6F2,#3DC9E8);display:flex;align-items:center;justify-content:center;color:#062029;"><span class="mso" style="font-size:42px;">fitness_center</span></div>
+          <div style="flex:1;">
+            <div style="color:#fff;font-weight:700;font-size:32px;letter-spacing:-0.01em;">Prendre du muscle</div>
+            <div style="color:rgba(125,230,242,0.85);font-size:22px;font-weight:500;margin-top:4px;">Hypertrophie · surplus contrôlé</div>
+          </div>
+          <div style="width:44px;height:44px;border-radius:50%;background:linear-gradient(180deg,#7DE6F2,#3DC9E8);display:flex;align-items:center;justify-content:center;color:#062029;"><span class="mso" style="font-size:28px;font-weight:700;">check</span></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.10);border-radius:32px;padding:28px 32px;display:flex;align-items:center;gap:24px;">
+          <div style="width:84px;height:84px;border-radius:24px;background:rgba(168,85,247,0.14);display:flex;align-items:center;justify-content:center;color:#C084FC;"><span class="mso" style="font-size:42px;">bolt</span></div>
+          <div style="flex:1;">
+            <div style="color:#fff;font-weight:600;font-size:32px;letter-spacing:-0.01em;">Gagner en force</div>
+            <div style="color:rgba(255,255,255,0.50);font-size:22px;font-weight:400;margin-top:4px;">Powerlifting · 1RM · force max</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.10);border-radius:32px;padding:28px 32px;display:flex;align-items:center;gap:24px;">
+          <div style="width:84px;height:84px;border-radius:24px;background:rgba(105,246,184,0.14);display:flex;align-items:center;justify-content:center;color:#69F6B8;"><span class="mso" style="font-size:42px;">favorite</span></div>
+          <div style="flex:1;">
+            <div style="color:#fff;font-weight:600;font-size:32px;letter-spacing:-0.01em;">Forme générale</div>
+            <div style="color:rgba(255,255,255,0.50);font-size:22px;font-weight:400;margin-top:4px;">Endurance · bien-être · santé</div>
+          </div>
+        </div>
+      </div>
+      <div class="ctaApp">Continuer <span class="mso">arrow_forward</span></div>
+    </div>
+  </div></div></div>
+  <div class="foot">GRATUIT · SANS CARTE · <span>1 MINUTE</span></div>
+</div>
+
+<!-- ═══════════════ 02 — TABLEAU DE BORD ═══════════════ -->
+<div class="visual" id="v2" data-title="Tableau de bord">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">02 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow">Tableau de bord</div>
+    <div class="h1">Ta journée,<br>en <span class="accent">un écran.</span></div>
+    <div class="sub">Anneaux d'activité, séance du jour, programme en cours. Tout ce qu'il faut voir, instantanément.</div>
+  </div>
+  <div class="phonewrap"><div class="phone-glow"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:28px;">
+        <div>
+          <div style="font-size:22px;font-weight:500;color:rgba(255,255,255,0.55);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:8px;">Aperçu de ta journée</div>
+          <div style="font-weight:800;font-size:68px;color:#fff;letter-spacing:-0.03em;">Résumé</div>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;">
+          <div style="background:linear-gradient(135deg,rgba(168,85,247,0.18),rgba(168,85,247,0.06));border:1.5px solid rgba(168,85,247,0.45);border-radius:999px;padding:10px 18px;display:flex;align-items:center;gap:8px;color:#C084FC;font-weight:800;font-size:22px;letter-spacing:0.1em;"><span class="mso" style="font-size:22px;color:#7DE6F2;">diamond</span>ELITE</div>
+          <div style="width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#69F6B8,#7DE6F2);display:flex;align-items:center;justify-content:center;color:#062029;font-weight:800;font-size:28px;">G</div>
+        </div>
+      </div>
+      <!-- Programme card photo overlay -->
+      <div style="position:relative;border-radius:32px;overflow:hidden;margin-bottom:24px;height:340px;">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a3a52,#0e2638);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 50%, rgba(125,230,242,0.18) 0%, transparent 60%),linear-gradient(180deg,rgba(0,0,0,0.30) 0%,rgba(0,0,0,0.70) 100%);"></div>
+        <div style="position:relative;padding:28px 30px;height:100%;display:flex;flex-direction:column;">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+            <div style="display:inline-flex;align-items:center;gap:10px;padding:8px 18px;border-radius:999px;background:rgba(105,246,184,0.18);border:1px solid rgba(105,246,184,0.40);color:#69F6B8;font-weight:600;font-size:20px;letter-spacing:0.12em;"><span style="width:8px;height:8px;border-radius:50%;background:#69F6B8;"></span>EN COURS</div>
+            <div style="color:rgba(255,255,255,0.65);font-size:22px;font-weight:500;">Mon programme →</div>
+          </div>
+          <div style="font-weight:800;font-size:54px;color:#fff;letter-spacing:-0.03em;line-height:1;margin-bottom:8px;">Semaine 1</div>
+          <div style="color:rgba(255,255,255,0.65);font-size:22px;font-weight:400;margin-bottom:auto;">0/3 séries complétées</div>
+          <div style="background:linear-gradient(180deg,#7BE25A,#4DC72B);border-radius:24px;padding:22px;display:flex;align-items:center;justify-content:center;gap:12px;color:#0a1a05;font-weight:700;font-size:30px;letter-spacing:-0.01em;"><span class="mso" style="font-size:32px;">play_circle</span>Reprendre la séance</div>
+        </div>
+      </div>
+      <!-- Quick actions 3-col -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:24px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:62px;height:62px;border-radius:18px;background:rgba(125,230,242,0.14);display:flex;align-items:center;justify-content:center;color:#7DE6F2;margin-bottom:14px;"><span class="mso" style="font-size:34px;">bolt</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;line-height:1.1;">Séance<br>libre</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:62px;height:62px;border-radius:18px;background:rgba(168,85,247,0.14);display:flex;align-items:center;justify-content:center;color:#C084FC;margin-bottom:14px;"><span class="mso" style="font-size:34px;">history</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;line-height:1.1;">Histo-<br>rique</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:24px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:62px;height:62px;border-radius:18px;background:rgba(255,159,28,0.14);display:flex;align-items:center;justify-content:center;color:#FFB85C;margin-bottom:14px;"><span class="mso" style="font-size:34px;">smart_toy</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;line-height:1.1;">Coach<br>IA</div>
+        </div>
+      </div>
+      <!-- Activity rings card -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:32px;padding:26px 28px;margin-bottom:auto;">
+        <div style="color:#fff;font-weight:700;font-size:32px;letter-spacing:-0.01em;margin-bottom:18px;">Anneaux Activité</div>
+        <div style="display:flex;align-items:center;gap:22px;">
+          <svg viewBox="0 0 200 200" style="width:180px;height:180px;flex-shrink:0;">
+            <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(250,17,79,0.18)" stroke-width="20"/>
+            <circle cx="100" cy="100" r="80" fill="none" stroke="#FA114F" stroke-width="20" stroke-linecap="round" stroke-dasharray="502" stroke-dashoffset="180" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="60" fill="none" stroke="rgba(125,230,88,0.18)" stroke-width="20"/>
+            <circle cx="100" cy="100" r="60" fill="none" stroke="#7DE658" stroke-width="20" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="220" transform="rotate(-90 100 100)"/>
+            <circle cx="100" cy="100" r="40" fill="none" stroke="rgba(0,199,255,0.18)" stroke-width="20"/>
+            <circle cx="100" cy="100" r="40" fill="none" stroke="#00C7FF" stroke-width="20" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="100" transform="rotate(-90 100 100)"/>
+          </svg>
+          <div style="flex:1;display:flex;flex-direction:column;gap:14px;">
+            <div style="display:flex;align-items:center;gap:14px;"><span class="mso" style="font-size:32px;color:#FA114F;">local_fire_department</span><div><div style="color:#fff;font-weight:800;font-size:30px;letter-spacing:-0.02em;">428 <span style="color:rgba(255,255,255,0.40);font-size:22px;font-weight:500;">/700</span></div><div style="color:rgba(255,255,255,0.50);font-size:18px;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;">KCAL</div></div></div>
+            <div style="display:flex;align-items:center;gap:14px;"><span class="mso" style="font-size:32px;color:#7DE658;">timer</span><div><div style="color:#fff;font-weight:800;font-size:30px;letter-spacing:-0.02em;">38 <span style="color:rgba(255,255,255,0.40);font-size:22px;font-weight:500;">/60</span></div><div style="color:rgba(255,255,255,0.50);font-size:18px;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;">MIN</div></div></div>
+            <div style="display:flex;align-items:center;gap:14px;"><span class="mso" style="font-size:32px;color:#00C7FF;">accessibility_new</span><div><div style="color:#fff;font-weight:800;font-size:30px;letter-spacing:-0.02em;">8 <span style="color:rgba(255,255,255,0.40);font-size:22px;font-weight:500;">/12</span></div><div style="color:rgba(255,255,255,0.50);font-size:18px;letter-spacing:0.12em;font-weight:500;text-transform:uppercase;">H</div></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div></div></div>
+  <div class="foot">RÉSUMÉ DU JOUR · ANNEAUX APPLE SANTÉ · <span>FOCUS</span></div>
+</div>
+
+<!-- ═══════════════ 03 — PROGRAMME COMPLET ═══════════════ -->
+<div class="visual" id="v3" data-title="Programmes IA">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">03 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow">Programmes complets</div>
+    <div class="h1">12 semaines.<br><span class="accent">36 exercices.</span><br>Un seul plan.</div>
+    <div class="sub">Course à pied, prise de masse, force pure — l'IA construit ton programme structuré jusqu'à la dernière séance.</div>
+  </div>
+  <div class="phonewrap"><div class="phone-glow"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;">
+        <div>
+          <div style="font-size:22px;font-weight:500;color:rgba(255,255,255,0.55);letter-spacing:0.18em;text-transform:uppercase;margin-bottom:8px;">Entraînement</div>
+          <div style="font-weight:800;font-size:62px;color:#fff;letter-spacing:-0.03em;">Mes Programmes</div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(105,246,184,0.10);border:1px solid rgba(105,246,184,0.30);display:flex;align-items:center;justify-content:center;color:#69F6B8;"><span class="mso" style="font-size:30px;">upload_file</span></div>
+          <div style="width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,#7DE6F2,#3DC9E8);display:flex;align-items:center;justify-content:center;color:#062029;"><span class="mso" style="font-size:30px;font-weight:700;">add</span></div>
+        </div>
+      </div>
+      <!-- Resume strip -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:20px 22px;display:flex;align-items:center;gap:16px;margin-bottom:24px;">
+        <div style="width:60px;height:60px;border-radius:18px;background:rgba(168,85,247,0.14);display:flex;align-items:center;justify-content:center;color:#C084FC;"><span class="mso" style="font-size:30px;">edit_note</span></div>
+        <div style="flex:1;">
+          <div style="color:#fff;font-weight:600;font-size:24px;letter-spacing:-0.01em;">Continuer votre programme</div>
+          <div style="color:#7DE6F2;font-size:20px;font-weight:500;margin-top:2px;">Programme de Course à Pied — Forme…</div>
+        </div>
+        <span class="mso" style="font-size:34px;color:rgba(255,255,255,0.50);">chevron_right</span>
+      </div>
+      <!-- Big programme card -->
+      <div style="position:relative;border-radius:32px;overflow:hidden;height:600px;margin-bottom:24px;">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#2a4d3a,#0f1f17);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 30%, rgba(105,246,184,0.18) 0%, transparent 55%),linear-gradient(180deg,rgba(0,0,0,0.20) 0%,rgba(0,0,0,0.75) 100%);"></div>
+        <div style="position:relative;padding:28px 30px;height:100%;display:flex;flex-direction:column;">
+          <div style="display:flex;gap:10px;margin-bottom:18px;">
+            <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(105,246,184,0.20);border:1px solid rgba(105,246,184,0.40);color:#69F6B8;font-weight:600;font-size:20px;letter-spacing:0.10em;"><span style="width:8px;height:8px;border-radius:50%;background:#69F6B8;"></span>EN COURS</div>
+            <div style="display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(255,107,71,0.20);border:1px solid rgba(255,107,71,0.40);color:#FFB89E;font-weight:600;font-size:20px;letter-spacing:0.10em;">🏃 COURSE À PIED</div>
+          </div>
+          <div style="font-weight:800;font-size:62px;color:#fff;letter-spacing:-0.03em;line-height:1;margin-bottom:14px;">Programme de<br>Course à Pied —<br>Forme Générale</div>
+          <div style="color:rgba(255,255,255,0.60);font-size:24px;font-weight:400;margin-bottom:32px;">Course à pied · Semaine 1 / 12</div>
+          <div style="display:flex;gap:38px;margin-bottom:14px;">
+            <div><div style="font-weight:800;font-size:48px;color:#7DE6F2;letter-spacing:-0.02em;">12</div><div style="color:rgba(255,255,255,0.55);font-size:18px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;">Séances</div></div>
+            <div><div style="font-weight:800;font-size:48px;color:#7DE6F2;letter-spacing:-0.02em;">36</div><div style="color:rgba(255,255,255,0.55);font-size:18px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;">Exercices</div></div>
+            <div><div style="font-weight:800;font-size:48px;color:#7DE6F2;letter-spacing:-0.02em;">12</div><div style="color:rgba(255,255,255,0.55);font-size:18px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;">Semaines</div></div>
+          </div>
+          <div style="height:8px;background:rgba(255,255,255,0.10);border-radius:4px;overflow:hidden;margin-bottom:24px;margin-top:auto;">
+            <div style="width:8%;height:100%;background:linear-gradient(90deg,#7DE6F2,#69F6B8);border-radius:4px;"></div>
+          </div>
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(20px);border-radius:22px;padding:22px;text-align:center;color:#fff;font-weight:600;font-size:28px;">Voir le programme →</div>
+        </div>
+      </div>
+      <!-- 3 actions -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:auto;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(125,230,242,0.14);display:flex;align-items:center;justify-content:center;color:#7DE6F2;margin-bottom:12px;"><span class="mso" style="font-size:34px;">add_circle</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;">Nouveau</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(168,85,247,0.14);display:flex;align-items:center;justify-content:center;color:#C084FC;margin-bottom:12px;"><span class="mso" style="font-size:34px;">smart_toy</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;">Créer avec IA</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:rgba(105,246,184,0.14);display:flex;align-items:center;justify-content:center;color:#69F6B8;margin-bottom:12px;"><span class="mso" style="font-size:34px;">bar_chart</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;">Statistiques</div>
+        </div>
+      </div>
+    </div>
+  </div></div></div>
+  <div class="foot">PROGRAMMES STRUCTURÉS · <span>JUSQU'À 12 SEMAINES</span></div>
+</div>
+
+<!-- ═══════════════ 04 — ENTRAÎNEMENT ═══════════════ -->
+<div class="visual" id="v4" data-title="Entraînement live">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">04 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow">Entraînement live</div>
+    <div class="h1">Une séance.<br><span class="accent">Zéro friction.</span></div>
+    <div class="sub">Démarre, suis tes séries, valide. L'app pousse pour la progression, série après série.</div>
+  </div>
+  <div class="phonewrap"><div class="phone-glow"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px;">
+        <div>
+          <div style="font-weight:800;font-size:62px;color:#fff;letter-spacing:-0.03em;line-height:1;">Entraînement</div>
+          <div style="color:rgba(255,255,255,0.55);font-size:24px;font-weight:400;margin-top:6px;">Samedi 16 mai</div>
+        </div>
+        <div style="display:flex;gap:10px;">
+          <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;color:#7DE6F2;"><span class="mso" style="font-size:30px;">videocam</span></div>
+          <div style="width:60px;height:60px;border-radius:50%;background:rgba(168,85,247,0.14);border:1px solid rgba(168,85,247,0.30);display:flex;align-items:center;justify-content:center;color:#C084FC;"><span class="mso" style="font-size:30px;">bar_chart</span></div>
+          <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;color:#fff;"><span class="mso" style="font-size:30px;">history</span></div>
+        </div>
+      </div>
+      <!-- progress -->
+      <div style="display:flex;align-items:center;gap:24px;margin-bottom:24px;padding:0 4px;">
+        <svg viewBox="0 0 100 100" style="width:90px;height:90px;flex-shrink:0;">
+          <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(125,230,242,0.18)" stroke-width="8"/>
+          <circle cx="50" cy="50" r="42" fill="none" stroke="#7DE6F2" stroke-width="8" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="176" transform="rotate(-90 50 50)"/>
+          <text x="50" y="58" text-anchor="middle" fill="#7DE6F2" font-family="Lexend" font-weight="700" font-size="22">1/3</text>
+        </svg>
+        <div style="flex:1;color:rgba(255,255,255,0.85);font-size:24px;font-weight:500;">1 séance cette semaine<br>· objectif 3</div>
+        <div style="display:inline-flex;align-items:center;gap:6px;color:#7DE6F2;font-weight:700;font-size:26px;"><span style="font-size:30px;">🔥</span>4 sem.</div>
+      </div>
+      <!-- big workout card -->
+      <div style="position:relative;border-radius:32px;overflow:hidden;height:440px;margin-bottom:24px;">
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,#1a2540,#0a1124);"></div>
+        <div style="position:absolute;inset:0;background:radial-gradient(circle at 70% 40%, rgba(125,230,242,0.20) 0%, transparent 55%),linear-gradient(180deg,rgba(0,0,0,0.20),rgba(0,0,0,0.70));"></div>
+        <div style="position:relative;padding:28px 30px;height:100%;display:flex;flex-direction:column;">
+          <div style="color:#7DE6F2;font-weight:600;font-size:22px;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;">Programme de Course à Pied · Forme Générale</div>
+          <div style="font-weight:800;font-size:68px;color:#fff;letter-spacing:-0.03em;line-height:1;margin-bottom:14px;">Semaine 1</div>
+          <div style="color:rgba(255,255,255,0.65);font-size:26px;font-weight:500;margin-bottom:auto;display:flex;gap:18px;"><span>3 exercices</span><span>·</span><span>~11 min</span></div>
+          <div style="display:flex;gap:16px;">
+            <div style="flex:1;background:linear-gradient(180deg,#7DE6F2,#3DC9E8);border-radius:22px;padding:24px;display:flex;align-items:center;justify-content:center;gap:12px;color:#062029;font-weight:700;font-size:32px;letter-spacing:-0.01em;"><span class="mso" style="font-size:30px;">play_arrow</span>DÉMARRER</div>
+            <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);backdrop-filter:blur(20px);border-radius:22px;padding:24px 30px;display:flex;align-items:center;gap:10px;color:#fff;font-weight:600;font-size:26px;"><span class="mso" style="font-size:28px;color:#7DE6F2;">bolt</span>Express</div>
+          </div>
+        </div>
+      </div>
+      <!-- week circles -->
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:auto;padding:0 8px;">
+        <div style="text-align:center;"><div style="width:60px;height:60px;border-radius:50%;background:rgba(125,230,242,0.10);border:2px solid #7DE6F2;display:flex;align-items:center;justify-content:center;color:#7DE6F2;font-weight:700;font-size:18px;letter-spacing:0.06em;">SEM</div><div style="color:#7DE6F2;font-size:18px;font-weight:600;margin-top:8px;">LUN</div></div>
+        <div style="text-align:center;"><div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.40);"><span class="mso" style="font-size:30px;">bedtime</span></div><div style="color:rgba(255,255,255,0.40);font-size:18px;font-weight:500;margin-top:8px;">MAR</div></div>
+        <div style="text-align:center;"><div style="width:60px;height:60px;border-radius:50%;background:rgba(125,230,242,0.10);border:2px solid #7DE6F2;display:flex;align-items:center;justify-content:center;color:#7DE6F2;font-weight:700;font-size:18px;letter-spacing:0.06em;">SEM</div><div style="color:#7DE6F2;font-size:18px;font-weight:600;margin-top:8px;">MER</div></div>
+        <div style="text-align:center;"><div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.40);"><span class="mso" style="font-size:30px;">bedtime</span></div><div style="color:rgba(255,255,255,0.40);font-size:18px;font-weight:500;margin-top:8px;">JEU</div></div>
+        <div style="text-align:center;"><div style="width:60px;height:60px;border-radius:50%;background:rgba(125,230,242,0.10);border:2px solid #7DE6F2;display:flex;align-items:center;justify-content:center;color:#7DE6F2;font-weight:700;font-size:18px;letter-spacing:0.06em;">SEM</div><div style="color:#7DE6F2;font-size:18px;font-weight:600;margin-top:8px;">VEN</div></div>
+        <div style="text-align:center;"><div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.40);"><span class="mso" style="font-size:30px;">bedtime</span></div><div style="color:rgba(255,255,255,0.40);font-size:18px;font-weight:500;margin-top:8px;">SAM</div></div>
+        <div style="text-align:center;"><div style="width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,0.04);border:1.5px solid rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.40);"><span class="mso" style="font-size:30px;">bedtime</span></div><div style="color:rgba(255,255,255,0.40);font-size:18px;font-weight:500;margin-top:8px;">DIM</div></div>
+      </div>
+    </div>
+  </div></div></div>
+  <div class="foot">DÉMARRER EN 1 TAP · <span>SUIVI AUTO</span></div>
+</div>
+
+<!-- ═══════════════ 05 — COACH IA MOUVEMENT ═══════════════ -->
+<div class="visual" id="v5" data-title="Coach IA Posture">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">05 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow">Coach IA mouvement</div>
+    <div class="h1">Filme.<br>Corrige.<br><span class="accent-purple">Progresse.</span></div>
+    <div class="sub">L'IA analyse ta posture en temps réel sur les mouvements clés. Un coach dans la poche, sans rendez-vous.</div>
+  </div>
+  <div class="phonewrap"><div class="phone-glow" style="background:radial-gradient(ellipse 55% 45% at 50% 55%, rgba(168,85,247,0.30) 0%, rgba(168,85,247,0) 60%);"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:30px;">
+        <div style="width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;color:#fff;"><span class="mso" style="font-size:34px;">close</span></div>
+        <div style="text-align:center;">
+          <div style="font-weight:800;font-size:38px;color:#fff;letter-spacing:-0.02em;">Coach IA Mouvement</div>
+          <div style="color:#7DE6F2;font-weight:600;font-size:20px;letter-spacing:0.18em;margin-top:4px;text-transform:uppercase;">Analyse posture en temps réel</div>
+        </div>
+        <div style="width:64px;"></div>
+      </div>
+      <div style="text-align:center;color:rgba(255,255,255,0.55);font-size:24px;font-weight:400;margin-bottom:24px;">Quel mouvement veux-tu faire analyser ?</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px 24px;">
+          <div style="font-size:46px;margin-bottom:14px;">🏋️</div>
+          <div style="color:#fff;font-weight:700;font-size:28px;letter-spacing:-0.01em;">Squat barre</div>
+          <div style="color:#7DE6F2;font-size:20px;font-weight:500;margin-top:6px;">Quadriceps · Fessiers</div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(168,85,247,0.16),rgba(168,85,247,0.04));border:1.5px solid rgba(168,85,247,0.40);border-radius:28px;padding:22px 24px;box-shadow:0 0 40px rgba(168,85,247,0.15);">
+          <div style="font-size:46px;margin-bottom:14px;">💪</div>
+          <div style="color:#fff;font-weight:700;font-size:28px;letter-spacing:-0.01em;">Développé couché</div>
+          <div style="color:#C084FC;font-size:20px;font-weight:500;margin-top:6px;">Pectoraux · Triceps</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px 24px;">
+          <div style="font-size:46px;margin-bottom:14px;">⬆️</div>
+          <div style="color:#fff;font-weight:700;font-size:28px;letter-spacing:-0.01em;">Soulevé de terre</div>
+          <div style="color:#7DE6F2;font-size:20px;font-weight:500;margin-top:6px;">Dos · Ischio · Fessiers</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px 24px;">
+          <div style="font-size:46px;margin-bottom:14px;">🙌</div>
+          <div style="color:#fff;font-weight:700;font-size:28px;letter-spacing:-0.01em;">Développé militaire</div>
+          <div style="color:#7DE6F2;font-size:20px;font-weight:500;margin-top:6px;">Épaules · Triceps</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px 24px;">
+          <div style="font-size:46px;margin-bottom:14px;">🤸</div>
+          <div style="color:#fff;font-weight:700;font-size:28px;letter-spacing:-0.01em;">Tractions</div>
+          <div style="color:#7DE6F2;font-size:20px;font-weight:500;margin-top:6px;">Dos · Biceps</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:28px;padding:22px 24px;">
+          <div style="font-size:46px;margin-bottom:14px;">🚣</div>
+          <div style="color:#fff;font-weight:700;font-size:28px;letter-spacing:-0.01em;">Rowing barre</div>
+          <div style="color:#7DE6F2;font-size:20px;font-weight:500;margin-top:6px;">Dos · Biceps</div>
+        </div>
+      </div>
+      <div style="background:rgba(168,85,247,0.10);border:1.5px solid rgba(168,85,247,0.30);border-radius:28px;padding:24px 26px;display:flex;align-items:center;gap:16px;margin-top:auto;">
+        <span class="mso" style="font-size:34px;color:#C084FC;">smart_toy</span>
+        <div style="color:#fff;font-weight:500;font-size:22px;line-height:1.35;">Analyse posturale par IA Vision · feedback instantané</div>
+      </div>
+    </div>
+  </div></div></div>
+  <div class="foot">CORRECTION DE FORME · <span>VIDÉO ANALYSE IA</span></div>
+</div>
+
+<!-- ═══════════════ 06 — NUTRITION ═══════════════ -->
+<div class="visual" id="v6" data-title="Nutrition mint">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">06 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow" style="background:rgba(105,246,184,0.10);border-color:rgba(105,246,184,0.30);color:#69F6B8;">Nutrition</div>
+    <div class="h1">Mange comme<br>tu <span class="accent-mint">t'entraînes.</span></div>
+    <div class="sub">Calories cibles, macros, recettes générées par l'IA. Photo IA pour scanner ton assiette. Tout inclus.</div>
+  </div>
+  <div class="phonewrap"><div class="phone-glow" style="background:radial-gradient(ellipse 55% 45% at 50% 55%, rgba(105,246,184,0.30) 0%, rgba(105,246,184,0) 60%);"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:30px;padding-top:6px;">
+        <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;color:#fff;"><span class="mso" style="font-size:28px;">chevron_left</span></div>
+        <div style="text-align:center;">
+          <div style="color:rgba(255,255,255,0.55);font-weight:500;font-size:22px;letter-spacing:0.20em;text-transform:uppercase;">Nutrition</div>
+          <div style="color:#69F6B8;font-weight:700;font-size:30px;letter-spacing:-0.01em;margin-top:2px;">Aujourd'hui</div>
+        </div>
+        <div style="width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.10);display:flex;align-items:center;justify-content:center;color:#fff;"><span class="mso" style="font-size:28px;">chevron_right</span></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px;">
+        <div>
+          <div style="font-weight:800;font-size:54px;color:#fff;letter-spacing:-0.03em;">Bonjour 👋</div>
+          <div style="color:rgba(255,255,255,0.50);font-size:22px;font-weight:400;margin-top:4px;">Reste concentré sur tes objectifs</div>
+        </div>
+        <div style="width:64px;height:64px;border-radius:18px;background:rgba(105,246,184,0.14);border:1px solid rgba(105,246,184,0.30);display:flex;align-items:center;justify-content:center;color:#69F6B8;"><span class="mso" style="font-size:34px;">monitoring</span></div>
+      </div>
+      <!-- 3 quick actions -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:24px;">
+        <div style="background:linear-gradient(135deg,rgba(105,246,184,0.20),rgba(105,246,184,0.04));border:1px solid rgba(105,246,184,0.35);border-radius:28px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:60px;height:60px;border-radius:50%;background:rgba(105,246,184,0.20);display:flex;align-items:center;justify-content:center;color:#69F6B8;margin-bottom:10px;"><span class="mso" style="font-size:32px;">menu_book</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;">Mes recettes</div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(168,85,247,0.20),rgba(168,85,247,0.04));border:1px solid rgba(168,85,247,0.35);border-radius:28px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:60px;height:60px;border-radius:50%;background:rgba(168,85,247,0.20);display:flex;align-items:center;justify-content:center;color:#C084FC;margin-bottom:10px;"><span class="mso" style="font-size:32px;">photo_camera</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;">Photo IA</div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(255,184,90,0.20),rgba(255,184,90,0.04));border:1px solid rgba(255,184,90,0.35);border-radius:28px;padding:22px;display:flex;flex-direction:column;align-items:center;text-align:center;">
+          <div style="width:60px;height:60px;border-radius:50%;background:rgba(255,184,90,0.20);display:flex;align-items:center;justify-content:center;color:#FFB85C;margin-bottom:10px;"><span class="mso" style="font-size:32px;">monitor_weight</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;">Mon poids</div>
+        </div>
+      </div>
+      <!-- Calorie card -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:32px;padding:34px 32px;margin-bottom:22px;">
+        <div style="text-align:center;color:#69F6B8;font-weight:600;font-size:22px;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:24px;">🔥 Calories</div>
+        <div style="display:flex;justify-content:center;margin-bottom:24px;">
+          <svg viewBox="0 0 240 240" style="width:280px;height:280px;">
+            <circle cx="120" cy="120" r="100" fill="none" stroke="rgba(105,246,184,0.12)" stroke-width="18"/>
+            <circle cx="120" cy="120" r="100" fill="none" stroke="#69F6B8" stroke-width="18" stroke-linecap="round" stroke-dasharray="628" stroke-dashoffset="220" transform="rotate(-90 120 120)"/>
+            <text x="120" y="118" text-anchor="middle" fill="#fff" font-family="Lexend" font-weight="800" font-size="60" letter-spacing="-0.04em">1842</text>
+            <text x="120" y="158" text-anchor="middle" fill="#fff" font-family="Lexend" font-weight="700" font-size="32" letter-spacing="-0.02em">restantes</text>
+            <text x="120" y="188" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="Lexend" font-weight="500" font-size="18" letter-spacing="0.16em">KCAL RESTANTES</text>
+          </svg>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;">
+          <div style="text-align:center;"><div style="color:rgba(255,255,255,0.45);font-size:18px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;margin-bottom:4px;">Consommés</div><div style="color:#69F6B8;font-weight:800;font-size:46px;letter-spacing:-0.02em;">658</div></div>
+          <div style="text-align:center;"><div style="color:rgba(255,255,255,0.45);font-size:18px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;margin-bottom:4px;">Brûlés</div><div style="color:#fff;font-weight:800;font-size:46px;letter-spacing:-0.02em;">320</div></div>
+        </div>
+      </div>
+      <!-- Macros -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:22px 24px;margin-top:auto;">
+        <div style="color:rgba(255,255,255,0.55);font-size:20px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;margin-bottom:16px;">Macros</div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div><div style="display:flex;justify-content:space-between;color:#fff;margin-bottom:6px;"><span style="font-weight:500;font-size:22px;">Protéines</span><span style="font-weight:700;font-size:22px;color:#69F6B8;">132g</span></div><div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:75%;height:100%;background:#69F6B8;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;color:#fff;margin-bottom:6px;"><span style="font-weight:500;font-size:22px;">Glucides</span><span style="font-weight:700;font-size:22px;color:#7DE6F2;">218g</span></div><div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:65%;height:100%;background:#7DE6F2;"></div></div></div>
+          <div><div style="display:flex;justify-content:space-between;color:#fff;margin-bottom:6px;"><span style="font-weight:500;font-size:22px;">Lipides</span><span style="font-weight:700;font-size:22px;color:#FFB85C;">54g</span></div><div style="height:6px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:55%;height:100%;background:#FFB85C;"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div></div></div>
+  <div class="foot">CALORIES · MACROS · PHOTO IA · <span>RECETTES INCLUSES</span></div>
+</div>
+
+<!-- ═══════════════ 07 — STATS / MUSCLE MAP ═══════════════ -->
+<div class="visual" id="v7" data-title="Stats & corps">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">07 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow">Stats · Corps · Volume</div>
+    <div class="h1">Chaque muscle.<br><span class="accent">Tracké.</span></div>
+    <div class="sub">Volume hebdo par groupe musculaire, force par exercice, anneaux Apple. Toute ta progression, visualisée.</div>
+  </div>
+  <div class="phonewrap"><div class="phone-glow"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+        <div>
+          <div style="font-weight:800;font-size:54px;color:#fff;letter-spacing:-0.03em;">Stats Fitness</div>
+          <div style="color:#7DE6F2;font-size:20px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;margin-top:4px;">Analyse · Progression</div>
+        </div>
+        <div style="background:linear-gradient(135deg,rgba(255,184,90,0.20),rgba(255,184,90,0.06));border:1.5px solid rgba(255,184,90,0.45);border-radius:999px;padding:10px 18px;color:#FFB85C;font-weight:800;font-size:22px;letter-spacing:0.10em;">ELITE</div>
+      </div>
+      <!-- Volume chart -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:32px;padding:26px 28px;margin-bottom:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:18px;">
+          <div>
+            <div style="color:rgba(255,255,255,0.55);font-size:20px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;">Volume hebdomadaire</div>
+            <div style="color:#fff;font-weight:800;font-size:48px;letter-spacing:-0.03em;margin-top:6px;">12,4 t</div>
+          </div>
+          <div style="background:rgba(105,246,184,0.14);border:1px solid rgba(105,246,184,0.30);border-radius:999px;padding:8px 16px;color:#69F6B8;font-weight:700;font-size:20px;">↑ +12 %</div>
+        </div>
+        <svg viewBox="0 0 540 200" style="width:100%;height:200px;display:block;" preserveAspectRatio="none">
+          <defs><linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#7DE6F2" stop-opacity="0.4"/><stop offset="100%" stop-color="#7DE6F2" stop-opacity="0"/></linearGradient></defs>
+          <path d="M0,170 L60,150 L120,130 L180,140 L240,100 L300,110 L360,70 L420,60 L480,40 L540,25 L540,200 L0,200 Z" fill="url(#g1)"/>
+          <path d="M0,170 L60,150 L120,130 L180,140 L240,100 L300,110 L360,70 L420,60 L480,40 L540,25" fill="none" stroke="#7DE6F2" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="540" cy="25" r="8" fill="#7DE6F2"/>
+        </svg>
+        <div style="display:flex;justify-content:space-between;color:rgba(255,255,255,0.40);font-size:18px;font-weight:500;margin-top:10px;"><span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>Auj.</span></div>
+      </div>
+      <!-- Corps & Volume -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:32px;padding:26px 28px;margin-bottom:18px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;">
+          <div style="color:#fff;font-weight:700;font-size:32px;letter-spacing:-0.01em;">Corps & Volume</div>
+          <div style="color:#7DE6F2;font-weight:600;font-size:22px;">Détail ›</div>
+        </div>
+        <div style="display:flex;gap:18px;">
+          <div style="width:140px;height:220px;border-radius:24px;background:linear-gradient(180deg,rgba(125,230,242,0.12),rgba(168,85,247,0.08));border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <span class="mso" style="font-size:90px;color:#7DE6F2;opacity:0.7;">accessibility_new</span>
+          </div>
+          <div style="flex:1;display:flex;flex-direction:column;gap:12px;justify-content:center;">
+            <div><div style="display:flex;justify-content:space-between;color:#fff;margin-bottom:4px;"><span style="font-weight:600;font-size:24px;display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#69F6B8;"></span>Pecs</span><span style="font-weight:700;font-size:22px;">8<span style="color:rgba(255,255,255,0.40);">/10</span></span></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:80%;height:100%;background:#69F6B8;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;color:#fff;margin-bottom:4px;"><span style="font-weight:600;font-size:24px;display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#FFB85C;"></span>Dos</span><span style="font-weight:700;font-size:22px;">6<span style="color:rgba(255,255,255,0.40);">/12</span></span></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:50%;height:100%;background:#FFB85C;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;color:#fff;margin-bottom:4px;"><span style="font-weight:600;font-size:24px;display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#69F6B8;"></span>Jambes</span><span style="font-weight:700;font-size:22px;">18<span style="color:rgba(255,255,255,0.40);">/30</span></span></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:60%;height:100%;background:#69F6B8;"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;color:#fff;margin-bottom:4px;"><span style="font-weight:600;font-size:24px;display:flex;align-items:center;gap:10px;"><span style="width:10px;height:10px;border-radius:50%;background:#7DE6F2;"></span>Bras</span><span style="font-weight:700;font-size:22px;">12<span style="color:rgba(255,255,255,0.40);">/24</span></span></div><div style="height:5px;background:rgba(255,255,255,0.08);border-radius:3px;overflow:hidden;"><div style="width:50%;height:100%;background:#7DE6F2;"></div></div></div>
+          </div>
+        </div>
+      </div>
+      <!-- Records -->
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:22px 26px;margin-top:auto;">
+        <div style="color:rgba(255,255,255,0.55);font-size:20px;letter-spacing:0.16em;font-weight:500;text-transform:uppercase;margin-bottom:14px;">Record du mois</div>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="color:#fff;font-weight:700;font-size:26px;letter-spacing:-0.01em;">Développé couché</div>
+            <div style="color:rgba(255,255,255,0.50);font-size:20px;font-weight:400;">8 reps · 85 kg</div>
+          </div>
+          <div style="color:#7DE6F2;font-weight:800;font-size:32px;">+5 kg ↑</div>
+        </div>
+      </div>
+    </div>
+  </div></div></div>
+  <div class="foot">CORPS · VOLUME · RECORDS · <span>TRACKÉ AUTO</span></div>
+</div>
+
+<!-- ═══════════════ 08 — CTA FINAL ═══════════════ -->
+<div class="visual" id="v8" data-title="CTA Elite">
+  <div class="dots"></div>
+  <div class="markrow"><span class="mark">ONARI</span><span class="pgnum">08 / 08</span></div>
+  <div class="head">
+    <div class="eyebrow" style="background:rgba(168,85,247,0.10);border-color:rgba(168,85,247,0.30);color:#C084FC;"><span style="color:#C084FC;">◆</span> Onari Elite</div>
+    <div class="h1">Le coach.<br>Le plan.<br><span class="accent">Le suivi.</span></div>
+    <div class="sub">Tout pour te transformer. Programme IA, coach mouvement, nutrition, stats. Essai gratuit 7 jours.</div>
+  </div>
+  <div class="phonewrap" style="bottom:200px;"><div class="phone-glow"></div><div class="phone"><div class="screen">
+    <div class="notch"></div>
+    <div class="statusbar"><span>9:41</span><span class="icons">●●● ⌄ 100%</span></div>
+    <div class="appbg" style="padding:50px 44px;justify-content:center;text-align:center;">
+      <!-- Big logo -->
+      <div style="font-weight:800;font-size:96px;letter-spacing:0.16em;color:#fff;margin-bottom:14px;line-height:1;">ONARI</div>
+      <div style="color:rgba(255,255,255,0.55);font-size:22px;font-weight:500;letter-spacing:0.18em;margin-bottom:54px;text-transform:uppercase;">Fitness · Nutrition · Coach IA</div>
+      <!-- stars + rating -->
+      <div style="display:flex;justify-content:center;gap:8px;margin-bottom:18px;">
+        <span class="mso" style="font-size:54px;color:#FFB85C;font-variation-settings:'FILL' 1;">star</span>
+        <span class="mso" style="font-size:54px;color:#FFB85C;font-variation-settings:'FILL' 1;">star</span>
+        <span class="mso" style="font-size:54px;color:#FFB85C;font-variation-settings:'FILL' 1;">star</span>
+        <span class="mso" style="font-size:54px;color:#FFB85C;font-variation-settings:'FILL' 1;">star</span>
+        <span class="mso" style="font-size:54px;color:#FFB85C;font-variation-settings:'FILL' 1;">star</span>
+      </div>
+      <div style="color:#fff;font-weight:800;font-size:30px;letter-spacing:-0.01em;margin-bottom:6px;">4,9 / 5 sur 1 200 avis</div>
+      <div style="color:rgba(255,255,255,0.50);font-size:22px;font-weight:400;margin-bottom:40px;">+5 000 programmes générés cette semaine</div>
+      <!-- features compact -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:44px;">
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:20px;display:flex;align-items:center;gap:14px;text-align:left;">
+          <div style="width:54px;height:54px;border-radius:16px;background:rgba(125,230,242,0.14);display:flex;align-items:center;justify-content:center;color:#7DE6F2;"><span class="mso" style="font-size:30px;">smart_toy</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;line-height:1.1;">Programme<br>IA</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:20px;display:flex;align-items:center;gap:14px;text-align:left;">
+          <div style="width:54px;height:54px;border-radius:16px;background:rgba(105,246,184,0.14);display:flex;align-items:center;justify-content:center;color:#69F6B8;"><span class="mso" style="font-size:30px;">restaurant</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;line-height:1.1;">Nutrition<br>complète</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:20px;display:flex;align-items:center;gap:14px;text-align:left;">
+          <div style="width:54px;height:54px;border-radius:16px;background:rgba(168,85,247,0.14);display:flex;align-items:center;justify-content:center;color:#C084FC;"><span class="mso" style="font-size:30px;">videocam</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;line-height:1.1;">Coach<br>Mouvement</div>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:20px;display:flex;align-items:center;gap:14px;text-align:left;">
+          <div style="width:54px;height:54px;border-radius:16px;background:rgba(255,184,90,0.14);display:flex;align-items:center;justify-content:center;color:#FFB85C;"><span class="mso" style="font-size:30px;">favorite</span></div>
+          <div style="color:#fff;font-weight:600;font-size:22px;line-height:1.1;">Apple Santé<br>synchro</div>
+        </div>
+      </div>
+      <div class="ctaApp" style="font-size:34px;">Commencer gratuitement <span class="mso">arrow_forward</span></div>
+      <div style="color:rgba(255,255,255,0.45);font-size:20px;font-weight:500;letter-spacing:0.10em;margin-top:18px;text-transform:uppercase;">🔒 7 jours offerts · Sans engagement</div>
+    </div>
+  </div></div></div>
+  <div class="foot">DISPONIBLE SUR L'APP STORE · <span>TÉLÉCHARGE MAINTENANT</span></div>
+</div>
+
+</div><!-- /visuals-source -->
+
+<script>
+const VISUALS = [
+  {id:'v1', title:'Plan en 60 secondes',     file:'onari_01_hero_60s.png'},
+  {id:'v2', title:'Tableau de bord',          file:'onari_02_resume.png'},
+  {id:'v3', title:'Programmes complets',      file:'onari_03_programmes.png'},
+  {id:'v4', title:'Entraînement live',        file:'onari_04_entrainement.png'},
+  {id:'v5', title:'Coach IA mouvement',       file:'onari_05_coach_ia.png'},
+  {id:'v6', title:'Nutrition',                file:'onari_06_nutrition.png'},
+  {id:'v7', title:'Stats & muscle map',       file:'onari_07_stats.png'},
+  {id:'v8', title:'CTA Elite final',          file:'onari_08_cta.png'}
+];
+
+function buildGallery(){
+  const gallery = document.getElementById('gallery');
+  const source = document.getElementById('visuals-source');
+  VISUALS.forEach((v,idx)=>{
+    const original = source.querySelector('#'+v.id);
+    const thumb = document.createElement('div');
+    thumb.className = 'thumb';
+    thumb.innerHTML = `
+      <div class="thumb-frame" id="frame-${v.id}"></div>
+      <div class="thumb-label">
+        <div>
+          <div class="num">${String(idx+1).padStart(2,'0')} / 08</div>
+          <div class="title">${v.title}</div>
+        </div>
+        <button class="dl" onclick="downloadOne('${v.id}','${v.file}')">PNG ↓</button>
+      </div>`;
+    gallery.appendChild(thumb);
+    const frame = thumb.querySelector('.thumb-frame');
+    const clone = original.cloneNode(true);
+    clone.id = v.id + '-clone';
+    requestAnimationFrame(()=>{
+      const fw = frame.clientWidth;
+      const scale = fw / 1290;
+      clone.style.transform = `scale(${scale})`;
+      clone.style.transformOrigin = 'top left';
+      clone.style.position = 'absolute';
+      clone.style.top = '0';
+      clone.style.left = '0';
+      frame.appendChild(clone);
+    });
+  });
+}
+
+async function renderToBlob(id){
+  const el = document.getElementById(id);
+  const canvas = await html2canvas(el, {width:1290,height:2796,windowWidth:1290,windowHeight:2796,scale:1,backgroundColor:null,useCORS:true,logging:false});
+  return new Promise(resolve=>canvas.toBlob(b=>resolve(b),'image/png',0.95));
+}
+async function downloadOne(id, filename){
+  const blob = await renderToBlob(id);
+  const url = URL.createObjectURL(blob); const a = document.createElement('a');
+  a.href = url; a.download = filename; document.body.appendChild(a); a.click();
+  a.remove(); URL.revokeObjectURL(url);
+}
+async function downloadAllPNG(){ for (const v of VISUALS){ await downloadOne(v.id,v.file); await new Promise(r=>setTimeout(r,400)); } }
+async function downloadAll(){
+  const zip = new JSZip();
+  for (const v of VISUALS){ const blob = await renderToBlob(v.id); zip.file(v.file, blob); }
+  const content = await zip.generateAsync({type:'blob'});
+  const url = URL.createObjectURL(content); const a = document.createElement('a');
+  a.href = url; a.download = 'onari-app-store-carousels-v2.zip';
+  document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+}
+buildGallery();
+</script>
+</body>
+</html>

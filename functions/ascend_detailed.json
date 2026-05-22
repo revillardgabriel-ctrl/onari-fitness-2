@@ -1,0 +1,2675 @@
+[
+  {
+    "exerciseId": "exr_41n2hdCBvmbCPaVE",
+    "name": "Diamond Press",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/6SPVwjalAc.jpg",
+    "bodyParts": [
+      "BACK",
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "ERECTOR SPINAE"
+    ],
+    "secondaryMuscles": [
+      "ANTERIOR DELTOID"
+    ],
+    "keywords": [
+      "Diamond Press exercise",
+      "Bodyweight back workout",
+      "Chest exercises at home",
+      "Diamond Press for chest",
+      "Bodyweight Diamond Press",
+      "No-equipment back exercises",
+      "Diamond Press workout routine",
+      "Bodyweight exercises for back and chest",
+      "Diamond Press technique",
+      "How to do Diamond Press exercise"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hGUso7JFmuYR",
+    "name": "Decline Push-Up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/Fw2auG2NBK.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "ANTERIOR DELTOID",
+      "TRICEPS BRACHII"
+    ],
+    "keywords": [
+      "Decline Push-Up workout",
+      "Body weight chest exercises",
+      "Decline Push-Up technique",
+      "How to do Decline Push-Ups",
+      "Home workouts for chest",
+      "Bodyweight exercises for pectorals",
+      "Decline Push-Up benefits",
+      "Decline Push-Up for chest strength",
+      "Improving chest muscles with Decline Push-Up",
+      "No-equipment chest workout"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hHLE8aJXaxKR",
+    "name": "Cobra Push-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/RMvhPtQeG7.jpg",
+    "bodyParts": [
+      "CHEST",
+      "HIPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "GLUTEUS MAXIMUS",
+      "ERECTOR SPINAE"
+    ],
+    "secondaryMuscles": [
+      "HAMSTRINGS",
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "TRICEPS BRACHII",
+      "ANTERIOR DELTOID"
+    ],
+    "keywords": [
+      "Cobra Push-up workout",
+      "Body weight exercises for chest",
+      "Hips strengthening exercises",
+      "Cobra Push-up technique",
+      "Body weight chest workout",
+      "Cobra Push-up benefits",
+      "Push-up variations",
+      "Cobra Push-up tutorial",
+      "Home workouts for chest",
+      "Body weight exercises for hips."
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hkK8hGAcSnW7",
+    "name": "Chest Dip",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/w39q9vcRo1.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "ANTERIOR DELTOID",
+      "LATISSIMUS DORSI",
+      "TRICEPS BRACHII",
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "LEVATOR SCAPULAE"
+    ],
+    "keywords": [
+      "Bodyweight Chest Exercise",
+      "Chest Dip Workout",
+      "Home Chest Exercise",
+      "Bodyweight Dip Training",
+      "Chest Strengthening Exercise",
+      "No Equipment Chest Workout",
+      "Bodyweight Pectoral Exercise",
+      "Dip Exercise for Chest",
+      "Bodyweight Chest Muscle Training",
+      "Chest Dip Bodyweight Technique"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hkmMrSwcHkZ8",
+    "name": "Clap Push Up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/lFYWJB9Dmn.jpg",
+    "bodyParts": [
+      "CHEST",
+      "TRICEPS",
+      "SHOULDERS",
+      "BICEPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "PLYOMETRICS",
+    "targetMuscles": [
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "TRICEPS BRACHII",
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "ANTERIOR DELTOID"
+    ],
+    "secondaryMuscles": [
+      "TRAPEZIUS UPPER FIBERS",
+      "SERRATUS ANTERIOR"
+    ],
+    "keywords": [
+      "Clap Push Up workout",
+      "Plyometrics exercises",
+      "Body weight training",
+      "Clap Push Up technique",
+      "Plyometrics push up",
+      "Advanced push up variations",
+      "Explosive push up exercises",
+      "Upper body plyometric workout",
+      "Body weight clap push up",
+      "Strength training with clap push ups."
+    ],
+    "_bodyPart": "CHEST",
+    "imageUrls": {
+      "360p": "https://cdn.exercisedb.dev/media/w/images/CQZiFDTSQT.jpg",
+      "480p": "https://cdn.exercisedb.dev/media/w/images/lFYWJB9Dmn.jpg",
+      "720p": "https://cdn.exercisedb.dev/media/w/images/EtrIMtjIMC.jpg",
+      "1080p": "https://cdn.exercisedb.dev/media/w/images/3pTbMuLYb6.jpg"
+    },
+    "videoUrl": "https://cdn.exercisedb.dev/w/videos/EGwyJye/41n2hkmMrSwcHkZ8__Clap-Push-Up_Plyometrics_Chest.mp4",
+    "overview": "The Clap Push Up is a dynamic exercise that combines strength training and plyometrics, enhancing both upper body strength and explosive power. It's an ideal workout for athletes or fitness enthusiasts who are looking to improve their physical performance, particularly in sports that require quick and powerful movements. Individuals may choose to incorporate Clap Push Ups into their routine to challenge their muscles in a new way, boost their cardiovascular health, and increase their overall fitness level.",
+    "instructions": [
+      "Lower your body towards the ground, keeping your elbows close to your body and your core engaged.",
+      "Push your body upwards with enough force to lift your hands off the ground.",
+      "While in mid-air, quickly clap your hands together and then place them back in the original position before you land.",
+      "Land softly, absorbing the impact with your arms, and immediately begin your next repetition."
+    ],
+    "exerciseTips": [
+      "Maintain Proper Form: Start in a traditional push-up position, with your body forming a straight line from your head to your heels. When you push up, propel your body upwards with enough force to clap your hands together before landing. It's crucial to maintain proper form throughout the exercise, as incorrect form can lead to injury.",
+      "Land Softly: One common mistake is landing too hard after the clap. This can be harmful to your wrists and elbows. To avoid this, make sure to land softly with your elbows slightly bent to absorb the shock.",
+      "Start Slowly: If you're new to clap push-ups, don't rush. Trying to perform too many reps"
+    ],
+    "variations": [
+      "Behind the Back Clap Push Up: In this variation, you push up from the ground and clap your hands behind your back before landing back into the push-up position.",
+      "Double Clap Push Up: This is a more advanced variation where you clap your hands once in front of your chest and once behind your back before landing back into the push-up position.",
+      "Clap Behind the Head Push Up: This variation involves pushing up from the ground, clapping your hands behind your head, and then returning back to the push-up position.",
+      "Superman Clap Push Up: In this variation, you push up from the ground, extend your arms forward like Superman flying, clap your hands, and then return back to the push-up position."
+    ],
+    "relatedExerciseIds": [
+      "exr_41n2hXXxorVwcKQB",
+      "exr_41n2hpCGQJSwNKsz",
+      "exr_41n2hnY168Wd7Bnn",
+      "exr_41n2hPZra2Xs78je",
+      "exr_41n2hu3PT1kFAvdS",
+      "exr_41n2hrq9PE15tX3H",
+      "exr_41n2hkjjd5kwL989",
+      "exr_41n2hQmr4eKmaZdb",
+      "exr_41n2hkchKz4CevkK",
+      "exr_41n2hPSK8gPY3YcQ"
+    ]
+  },
+  {
+    "exerciseId": "exr_41n2hKZmyYXB2UL4",
+    "name": "Elbows Back Stretch ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/ZBbn7b0eVR.jpg",
+    "bodyParts": [
+      "BACK",
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "TRICEPS BRACHII"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Bodyweight back stretch",
+      "Elbows back exercise",
+      "Back and chest workout",
+      "Bodyweight chest stretch",
+      "Elbow stretch for back",
+      "Home exercise for back and chest",
+      "No equipment back stretch",
+      "Bodyweight exercise for back strength",
+      "Elbows back stretching technique",
+      "Chest opening bodyweight exercise"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hM8vgMA6MREd",
+    "name": "Left hook. Boxing",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/SZeMKod0yD.jpg",
+    "bodyParts": [
+      "FULL BODY",
+      "SHOULDERS",
+      "TRICEPS",
+      "BICEPS",
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "PLYOMETRICS",
+    "targetMuscles": [
+      "TENSOR FASCIAE LATAE",
+      "OBLIQUES",
+      "ILIOPSOAS",
+      "GASTROCNEMIUS",
+      "SOLEUS",
+      "LATISSIMUS DORSI",
+      "TERES MAJOR",
+      "ANTERIOR DELTOID",
+      "GLUTEUS MEDIUS",
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "LATERAL DELTOID",
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Boxing workouts",
+      "Bodyweight exercises",
+      "Plyometric training",
+      "Left hook technique",
+      "Boxing for fitness",
+      "Bodyweight boxing routine",
+      "Plyometrics in boxing",
+      "Boxing exercise movements",
+      "Left hook boxing drill",
+      "Bodyweight and Plyometrics boxing training"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hmvGdVRvvnNY",
+    "name": "Pike Push up ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/NPtWT9FuRZ.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "LATERAL DELTOID",
+      "SERRATUS ANTERIOR",
+      "ANTERIOR DELTOID",
+      "TRICEPS BRACHII"
+    ],
+    "keywords": [
+      "Pike Push Up Workout",
+      "Bodyweight Chest Exercise",
+      "Pike Push Up Tutorial",
+      "Home Chest Workout",
+      "No Equipment Chest Exercise",
+      "Pike Push Up Benefits",
+      "How to do Pike Push Ups",
+      "Bodyweight Fitness Routine",
+      "Chest Strengthening Exercises",
+      "Advanced Bodyweight Exercise"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hnAGfMhp95LQ",
+    "name": "Shoulder Tap Push-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/yNystoPkKh.jpg",
+    "bodyParts": [
+      "SHOULDERS",
+      "TRICEPS",
+      "CHEST",
+      "BICEPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "PLYOMETRICS",
+    "targetMuscles": [
+      "ANTERIOR DELTOID",
+      "RECTUS ABDOMINIS",
+      "SERRATUS ANTERIOR",
+      "STERNOCLEIDOMASTOID"
+    ],
+    "secondaryMuscles": [
+      "TENSOR FASCIAE LATAE",
+      "WRIST FLEXORS"
+    ],
+    "keywords": [
+      "Body weight exercises",
+      "Plyometric workouts",
+      "Shoulder Tap Push-up tutorial",
+      "How to do Shoulder Tap Push-ups",
+      "Exercises for upper body strength",
+      "Plyometric push-up variations",
+      "Bodyweight shoulder exercises",
+      "Shoulder Tap Push-up benefits",
+      "Advanced push-up techniques",
+      "No-equipment home workouts"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hNfaYkEKLQHK",
+    "name": "Elevanted Push-Up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/6ZttyVFvT1.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "ANTERIOR DELTOID",
+      "PECTORALIS MAJOR CLAVICULAR HEAD"
+    ],
+    "keywords": [
+      "Elevated Push-Up workout",
+      "Bodyweight chest exercises",
+      "Elevated Push-Up for chest",
+      "Push-Up variations",
+      "Bodyweight fitness routines",
+      "Home workouts for chest",
+      "Push-Up exercises at home",
+      "Advanced push-up techniques",
+      "Upper body strength exercises",
+      "Bodyweight chest strengthening."
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hNXJadYcfjnd",
+    "name": "Push-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/cuG10rd4ea.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "TRICEPS BRACHII",
+      "ANTERIOR DELTOID",
+      "PECTORALIS MAJOR CLAVICULAR HEAD"
+    ],
+    "keywords": [
+      "Chest workout at home",
+      "Bodyweight exercises for chest",
+      "Push-up variations",
+      "How to do a push-up",
+      "Benefits of push-ups",
+      "Push-up technique",
+      "Upper body bodyweight exercises",
+      "Strengthening chest muscles",
+      "Bodyweight chest workout",
+      "Home workouts for chest."
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hQeNyCnt3uFh",
+    "name": "Back Pec Stretch",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/11TGBvhnYQ.jpg",
+    "bodyParts": [
+      "BACK",
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Back Pec Stretch exercise",
+      "Bodyweight Back and Chest workout",
+      "Back Pec Stretching routine",
+      "Bodyweight exercise for Back and Chest",
+      "Back Pec Stretch without equipment",
+      "Home workout for Back and Chest",
+      "Back and Pectoral Stretch exercise",
+      "Bodyweight Pec Stretch",
+      "Back and Chest strengthening exercises",
+      "No-equipment Back Pec Stretch workout"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hR12rPqdpWP8",
+    "name": "Pike-to-Cobra Push-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/879xVSMBvA.jpg",
+    "bodyParts": [
+      "CHEST",
+      "HIPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "TRICEPS BRACHII",
+      "ERECTOR SPINAE",
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "PECTORALIS MAJOR CLAVICULAR HEAD"
+    ],
+    "secondaryMuscles": [
+      "SOLEUS",
+      "HAMSTRINGS",
+      "GASTROCNEMIUS",
+      "ANTERIOR DELTOID"
+    ],
+    "keywords": [
+      "Pike to Cobra Push-up workout",
+      "Bodyweight chest exercise",
+      "Hips strengthening exercise",
+      "Pike-to-Cobra Push-up technique",
+      "Bodyweight fitness routine",
+      "Chest and hips workout",
+      "Pike to Cobra Push-up guide",
+      "Bodyweight push-up variations",
+      "Pike to Cobra Push-up for chest",
+      "Home workout for hips and chest"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hSq88Ni3KCny",
+    "name": "Standing Alternate Arms Circling ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/MNEbf0CfLo.jpg",
+    "bodyParts": [
+      "CHEST",
+      "SHOULDERS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "ADDUCTOR BREVIS"
+    ],
+    "secondaryMuscles": [
+      "SPLENIUS"
+    ],
+    "keywords": [
+      "Bodyweight chest exercise",
+      "Shoulder strengthening workout",
+      "Standing arm circles",
+      "Alternate arm circling exercise",
+      "Bodyweight shoulder exercise",
+      "Chest workout at home",
+      "No-equipment chest and shoulder workout",
+      "Standing upper body workout",
+      "Bodyweight arm circling",
+      "Arm rotation exercise for chest and shoulders"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hSvEPVntpxSG",
+    "name": "Kneeling Rotational Push-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/XkwVtgN8dJ.jpg",
+    "bodyParts": [
+      "CHEST",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "OBLIQUES"
+    ],
+    "secondaryMuscles": [
+      "TRICEPS BRACHII",
+      "ANTERIOR DELTOID",
+      "RECTUS ABDOMINIS"
+    ],
+    "keywords": [
+      "Kneeling Rotational Push-up tutorial",
+      "Bodyweight chest exercise",
+      "Waist toning exercises",
+      "Kneeling push-up variations",
+      "Rotational push-up for beginners",
+      "Bodyweight exercises for chest",
+      "Home workout for waist",
+      "Kneeling rotational push-up guide",
+      "Chest and waist workout",
+      "Bodyweight rotational push-up."
+    ],
+    "_bodyPart": "CHEST",
+    "imageUrls": {
+      "360p": "https://cdn.exercisedb.dev/media/w/images/JwOD6X2bvF.jpg",
+      "480p": "https://cdn.exercisedb.dev/media/w/images/XkwVtgN8dJ.jpg",
+      "720p": "https://cdn.exercisedb.dev/media/w/images/W83cv4IGHf.jpg",
+      "1080p": "https://cdn.exercisedb.dev/media/w/images/jRwrPIu0ck.jpg"
+    },
+    "videoUrl": "https://cdn.exercisedb.dev/w/videos/pyn3aV3/41n2hSvEPVntpxSG__Kneeling-Rotational-Push-Up_Chest.mp4",
+    "overview": "The Kneeling Rotational Push-up is an advanced exercise that combines strength training and core stabilization, targeting the chest, arms, and abdominal muscles. It's suitable for individuals with an intermediate to advanced fitness level, looking to intensify their upper body and core training. This exercise is sought-after for its ability to improve upper body strength, enhance core stability, and promote better coordination and balance.",
+    "instructions": [
+      "Lower your body down towards the floor, bending your elbows and keeping your body straight.",
+      "As you push your body back up, rotate your upper body to the right, extending your right arm towards the ceiling while keeping your left hand on the ground.",
+      "Return to the starting position and repeat the push-up, this time rotating your upper body to the left and extending your left arm towards the ceiling.",
+      "Continue to alternate sides with each push-up, ensuring you maintain proper form and control throughout the exercise."
+    ],
+    "exerciseTips": [
+      "Controlled Movement: As you lower your body towards the ground, keep your elbows close to your body. Push back up, and as you do, rotate your upper body to one side, lifting the same-side arm towards the ceiling. Repeat the movement, alternating sides. Avoid rushing through the movements. Each phase of the push-up should be done in a slow, controlled manner to maximize muscle engagement and prevent injury.",
+      "Core Engagement: Keep your core engaged throughout the exercise. This will not only help to stabilize your body but also enhance the effectiveness of the push-up. A common mistake is to forget"
+    ],
+    "variations": [
+      "Kneeling Diamond Push-up: In this variation, you form a diamond shape with your hands on the ground, which targets the triceps more intensely.",
+      "Kneeling Spiderman Push-up: This involves bringing your knee to your elbow during each push-up, adding a twist that works your obliques as well as your arms and chest.",
+      "Kneeling Clap Push-up: This is a more advanced variation where you push up explosively from the ground and clap your hands before landing, increasing the cardiovascular challenge.",
+      "Kneeling Wide Grip Push-up: In this variation, you place your hands wider than shoulder-width apart, which targets the chest muscles more intensely."
+    ],
+    "relatedExerciseIds": [
+      "exr_41n2hKidj72J5ZFJ",
+      "exr_41n2hbeRnFauBuVx",
+      "exr_41n2hy9wRVvgod5r",
+      "exr_41n2hwBkQ5bE72nB",
+      "exr_41n2hZ8NaVoBmKiq",
+      "exr_41n2hS6rZ9cGmQ3t",
+      "exr_41n2hgpsLEy9h2cM",
+      "exr_41n2hVVjksUqMkeS",
+      "exr_41n2hKNAJK7irMJY",
+      "exr_41n2hGUso7JFmuYR"
+    ]
+  },
+  {
+    "exerciseId": "exr_41n2hUBVSgXaKhau",
+    "name": "Standing Arms Circling ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/2rCXHeJmIA.jpg",
+    "bodyParts": [
+      "CHEST",
+      "SHOULDERS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "POSTERIOR DELTOID",
+      "SERRATUS ANTE"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Bodyweight exercise for chest and shoulders",
+      "Standing Arms Circling workout",
+      "Chest strengthening exercises",
+      "Shoulder workout with body weight",
+      "No-equipment chest workout",
+      "Bodyweight shoulder exercise",
+      "Standing Arms Circling technique",
+      "Home workout for chest and shoulders",
+      "Exercise to improve shoulder strength",
+      "Bodyweight chest and shoulder workout"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2huXeEFSaqo4G",
+    "name": "Standing One Arm Circling ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/N6BYyJC1zl.jpg",
+    "bodyParts": [
+      "CHEST",
+      "SHOULDERS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "TRICEPS BRACHII",
+      "LEVATOR SCAPULAE"
+    ],
+    "keywords": [
+      "One Arm Circling Workout",
+      "Bodyweight Chest Exercise",
+      "Shoulder Strengthening Exercise",
+      "One Arm Circling for Body Toning",
+      "Bodyweight Exercise for Upper Body",
+      "Standing One Arm Circle Training",
+      "Chest and Shoulder Bodyweight Exercise",
+      "Standing Single Arm Circle Workout",
+      "Upper Body Strength Exercise",
+      "Bodyweight Fitness for Chest and Shoulders"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hw4iksLYXESz",
+    "name": "Seated Shoulder Flexor Depresor Retractor Stretch Bent Knee",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/DbYTA0rvWJ.jpg",
+    "bodyParts": [
+      "CHEST",
+      "SHOULDERS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "ANTERIOR DELTOID"
+    ],
+    "secondaryMuscles": [
+      "BICEPS BRACHII"
+    ],
+    "keywords": [
+      "Body weight shoulder exercise",
+      "Chest and shoulder stretching",
+      "Bent knee shoulder stretch",
+      "Depresor retractor exercise",
+      "Flexor stretch workout",
+      "Body weight chest stretch",
+      "Seated shoulder exercise",
+      "Shoulder flexor workout",
+      "Bent knee chest exercise",
+      "Depresor retractor shoulder stretch."
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hWgAAtQeA3Lh",
+    "name": "Wide Hand Push up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/PvR5nLWE36.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "ANTERIOR DELTOID",
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "TRICEPS BRACHII"
+    ],
+    "keywords": [
+      "Wide Hand Push up workout",
+      "Body weight chest exercise",
+      "Wide grip push up training",
+      "Home workout for chest",
+      "No equipment chest exercise",
+      "Bodyweight push up variations",
+      "Wide stance push up workout",
+      "Chest strengthening exercises",
+      "Wide Hand Push up technique",
+      "Bodyweight exercises for pectoral muscles."
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hxnFMotsXTj3",
+    "name": "Bench Press",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/A8OLBqBa26.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BARBELL"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "TRICEPS BRACHII",
+      "ANTERIOR DELTOID",
+      "PECTORALIS MAJOR CLAVICULAR HEAD"
+    ],
+    "keywords": [
+      "Chest workout with barbell",
+      "Barbell bench press exercise",
+      "Strength training for chest",
+      "Upper body workout with barbell",
+      "Barbell chest exercises",
+      "Bench press for chest muscles",
+      "Building chest muscles with bench press",
+      "Chest strengthening with barbell",
+      "Bench press workout routine",
+      "Barbell exercises for chest muscle growth"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hXXpvbykPY3q",
+    "name": "Incline Push-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/CnQLzYUncF.jpg",
+    "bodyParts": [
+      "CHEST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD"
+    ],
+    "secondaryMuscles": [
+      "ANTERIOR DELTOID",
+      "PECTORALIS MAJOR CLAVICULAR HEAD",
+      "TRICEPS BRACHII"
+    ],
+    "keywords": [
+      "Bodyweight chest exercise",
+      "Incline push-up workout",
+      "Upper chest bodyweight exercise",
+      "Incline push-up technique",
+      "Chest strengthening exercises",
+      "Home workout for chest",
+      "No-equipment chest workout",
+      "Incline push-up form",
+      "Bodyweight exercise for upper chest",
+      "Incline push-up benefits"
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hynD9srC1kY7",
+    "name": "Standing Arms Flinging ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/vRBM4T9Q3P.jpg",
+    "bodyParts": [
+      "CHEST",
+      "SHOULDERS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "TRICEPS BRACHII"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Bodyweight Chest Exercise",
+      "Shoulder Strengthening Workout",
+      "No Equipment Arm Exercise",
+      "Home Workout for Chest and Shoulders",
+      "Bodyweight Arms Flinging",
+      "Standing Arms Flinging Routine",
+      "Bodyweight Shoulder Exercise",
+      "Chest Toning Bodyweight Exercise",
+      "Standing Arms Flinging Technique",
+      "Bodyweight Exercise for Upper Body."
+    ],
+    "_bodyPart": "CHEST"
+  },
+  {
+    "exerciseId": "exr_41n2hadPLLFRGvFk",
+    "name": "Sliding Floor Pulldown on Towel",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/9fW96RFqRZ.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "POSTERIOR DELTOID",
+      "TRICEPS BRACHII",
+      "TERES MINOR",
+      "TRAPEZIUS LOWER FIBERS",
+      "TRAPEZIUS MIDDLE FIBERS",
+      "TERES MAJOR",
+      "INFRASPINATUS"
+    ],
+    "keywords": [
+      "Body weight back exercise",
+      "Sliding Floor Pulldown tutorial",
+      "Towel workout for back",
+      "Bodyweight back strengthening",
+      "Sliding Floor Pulldown technique",
+      "Back exercises with towel",
+      "No-equipment back workout",
+      "Sliding Floor Pulldown on Towel instructions",
+      "Home workout for back muscles",
+      "Body weight exercises for back strength"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hcFJpBvAkXCP",
+    "name": "Seated Row with Towel",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/XsWkx1qcBC.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "INFRASPINATUS",
+      "TRAPEZIUS UPPER FIBERS",
+      "LATISSIMUS DORSI",
+      "TERES MINOR",
+      "TRAPEZIUS MIDDLE FIBERS",
+      "TERES MAJOR"
+    ],
+    "secondaryMuscles": [
+      "POSTERIOR DELTOID",
+      "BRACHIORADIALIS",
+      "BRACHIALIS"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Seated towel row workout",
+      "Back strengthening exercises",
+      "Bodyweight seated row",
+      "Towel row exercise",
+      "Home workout for back",
+      "No equipment back exercises",
+      "Seated row exercise variations",
+      "Towel workout for back muscles",
+      "DIY back exercises at home"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hd6SThQhAdnZ",
+    "name": "Chin-ups",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/TLX9vGr1dx.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "INFRASPINATUS",
+      "LATISSIMUS DORSI",
+      "TRAPEZIUS LOWER FIBERS",
+      "TERES MINOR",
+      "TERES MAJOR",
+      "TRAPEZIUS MIDDLE FIBERS"
+    ],
+    "secondaryMuscles": [
+      "BRACHIORADIALIS",
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "BRACHIALIS",
+      "POSTERIOR DELTOID"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Chin-up workout",
+      "Strength training for back",
+      "Home back exercises",
+      "Upper body workout",
+      "Back muscle building exercises",
+      "Chin-ups for back strength",
+      "Bodyweight exercises for back",
+      "Back strengthening exercises",
+      "Fitness routine with chin-ups"
+    ],
+    "_bodyPart": "BACK",
+    "imageUrls": {
+      "360p": "https://cdn.exercisedb.dev/media/w/images/JEvP8CFEdi.jpg",
+      "480p": "https://cdn.exercisedb.dev/media/w/images/TLX9vGr1dx.jpg",
+      "720p": "https://cdn.exercisedb.dev/media/w/images/1b6iEXJzbs.jpg",
+      "1080p": "https://cdn.exercisedb.dev/media/w/images/v1OmpkwbBD.jpg"
+    },
+    "videoUrl": "https://cdn.exercisedb.dev/w/videos/PV80ppW/41n2hd6SThQhAdnZ__Chin-ups-(narrow-parallel-grip)_Back.mp4",
+    "overview": "Chin-ups are a highly effective upper body exercise that targets multiple muscle groups, including the back, arms, and shoulders, providing a comprehensive workout. This exercise is suitable for anyone looking to increase their upper body strength, from beginners to advanced fitness enthusiasts. People may want to incorporate chin-ups into their routine as they not only improve muscle tone and strength, but also enhance core stability and can boost overall fitness levels.",
+    "instructions": [
+      "Pull your body up towards the bar, leading with your chest and keeping your elbows close to your body.",
+      "Continue to pull yourself up until your chin is above the bar and your chest is level with the bar.",
+      "Hold this position for a few seconds, then slowly lower your body back down until your arms are fully extended.",
+      "Repeat this process for your desired number of repetitions, making sure to maintain proper form throughout the exercise."
+    ],
+    "exerciseTips": [
+      "Grip: Your grip is crucial when performing chin-ups. The palms should face towards you (supinated grip) which is easier on the wrists and also engages the biceps more. The grip width should be shoulder-width apart. A common mistake is using a too wide or too narrow grip, which can strain your wrists and elbows.",
+      "Engage Your Core: Engage your abs and squeeze your glutes to keep your body stable. This not only works your core but also prevents you from swinging.",
+      "Controlled Movement: Avoid dropping down quickly after pulling yourself up. The lowering phase (eccentric part)"
+    ],
+    "variations": [
+      "Close-Grip Chin-Ups: By narrowing your grip, you can put more focus on your biceps and forearms.",
+      "Weighted Chin-Ups: For an added challenge, you can strap weights to your body to increase the resistance during the exercise.",
+      "Underhand Chin-Ups: By flipping your grip so your palms face towards you, you can target different muscles in your arms and back.",
+      "One-Arm Chin-Ups: This advanced variation requires significant strength and balance, as you pull yourself up using only one arm at a time."
+    ],
+    "relatedExerciseIds": [
+      "exr_41n2hzJVkdb1crtD",
+      "exr_41n2hhZcz98ezHYn",
+      "exr_41n2hcyUaAi7gSSx",
+      "exr_41n2htwCS5mAm56b",
+      "exr_41n2hjZwXYiPdmL7",
+      "exr_41n2haBG1HJx9Spt",
+      "exr_41n2hPgU8SXjTHBV",
+      "exr_41n2hGXJQopU1SEm",
+      "exr_41n2hST7X5hwnhC8",
+      "exr_41n2hL4hHD65dCYN"
+    ]
+  },
+  {
+    "exerciseId": "exr_41n2hdkBpqwoDmVq",
+    "name": "Suspended Row",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/bXwXW2WUCj.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "INFRASPINATUS",
+      "TRAPEZIUS UPPER FIBERS",
+      "TRAPEZIUS LOWER FIBERS",
+      "TERES MAJOR",
+      "TERES MINOR",
+      "LATISSIMUS DORSI",
+      "TRAPEZIUS MIDDLE FIBERS"
+    ],
+    "secondaryMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "BRACHIORADIALIS",
+      "BRACHIALIS",
+      "POSTERIOR DELTOID",
+      "BICEPS BRACHII"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Suspended row workout",
+      "Suspension training for back",
+      "Bodyweight rowing exercise",
+      "Home workout for back muscles",
+      "Back strengthening with body weight",
+      "Suspension row exercise",
+      "Bodyweight exercises for back",
+      "Suspended row for back strength",
+      "Back muscle workout with suspension row"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hdsGcuzs4WrV",
+    "name": "Self Assisted Inverted Pullover",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/n4N7gfo3Ph.jpg",
+    "bodyParts": [
+      "BACK",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "RECTUS ABDOMINIS",
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Inverted Pullover workout",
+      "Self Assisted exercise for back",
+      "Waist toning exercises",
+      "Bodyweight exercise for waist",
+      "Inverted Pullover technique",
+      "Back strengthening workouts",
+      "Bodyweight Pullover exercise",
+      "Self Assisted Inverted Pullover guide",
+      "Waist and back bodyweight exercises"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hfnnXz9shkBi",
+    "name": "Lying Lower Back Stretch ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/9w9vjAYwal.jpg",
+    "bodyParts": [
+      "BACK",
+      "HIPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "ERECTOR SPINAE"
+    ],
+    "secondaryMuscles": [
+      "HAMSTRINGS",
+      "GLUTEUS MAXIMUS"
+    ],
+    "keywords": [
+      "Lower Back Stretch Exercise",
+      "Body Weight Back Exercises",
+      "Hips Stretching Workout",
+      "Back Pain Relief Exercises",
+      "Bodyweight Hips Exercise",
+      "Lying Lower Back Stretch Techniques",
+      "Home Exercises for Back and Hips",
+      "No Equipment Back Stretch",
+      "Lower Back and Hip Flexibility Workout",
+      "Pain Relief with Lying Lower Back Stretch"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hftBVLiXgtRQ",
+    "name": "Wide Grip Pull-Up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/KTxTtuwOqD.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "TERES MAJOR",
+      "BRACHIORADIALIS",
+      "BRACHIALIS",
+      "TRAPEZIUS MIDDLE FIBERS",
+      "BICEPS BRACHII",
+      "TRAPEZIUS LOWER FIBERS"
+    ],
+    "keywords": [
+      "Wide Grip Pull-Up workout",
+      "Bodyweight back exercise",
+      "Pull-Up variations",
+      "Wide grip back strengthening",
+      "Bodyweight training for back",
+      "Wide grip pull-up technique",
+      "Back muscle workout",
+      "No-equipment back exercise",
+      "Upper body strength training",
+      "Wide hand position pull-ups"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hHdjQpnyNdie",
+    "name": "One Arm Bent-over Row",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/Ndd2gbg1ko.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "DUMBBELL"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI",
+      "TERES MAJOR",
+      "TRAPEZIUS MIDDLE FIBERS",
+      "INFRASPINATUS",
+      "TRAPEZIUS LOWER FIBERS",
+      "TERES MINOR"
+    ],
+    "secondaryMuscles": [
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "BRACHIALIS",
+      "POSTERIOR DELTOID",
+      "BRACHIORADIALIS"
+    ],
+    "keywords": [
+      "Dumbbell One Arm Row",
+      "Back Exercise with Dumbbell",
+      "Single Arm Dumbbell Row",
+      "Bent-over Dumbbell Back Workout",
+      "One Arm Dumbbell Back Exercise",
+      "Strength Training Back Exercise",
+      "One Arm Row Workout",
+      "Dumbbell Row for Back Muscles",
+      "Single Arm Bent-over Row",
+      "One Hand Dumbbell Back Workout"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hkknYAEEE3tc",
+    "name": "Front Toe Touching ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/NKv0f4GLQP.jpg",
+    "bodyParts": [
+      "BACK",
+      "HIPS",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "RECTUS ABDOMINIS"
+    ],
+    "secondaryMuscles": [
+      "OBLIQUES",
+      "ILIOPSOAS"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Waist toning exercises",
+      "Hips workout at home",
+      "Bodyweight exercise for hips",
+      "Front toe touching workout",
+      "Back strengthening bodyweight exercise",
+      "Waist slimming exercises",
+      "Toe touch exercise for back",
+      "Hip and waist toning workouts",
+      "Bodyweight exercise for flexible back"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hMydkzFvswVX",
+    "name": "Side Two Front Toe Touching ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/jJOZ9F9HyC.jpg",
+    "bodyParts": [
+      "BACK",
+      "HIPS",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "PECTINEUS",
+      "SERRATUS ANTE"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Body weight exercise for back",
+      "Side Two Front Toe Touching workout",
+      "Waist toning exercises",
+      "Hips strengthening workout",
+      "Back stretching exercises",
+      "Body weight workout for hips and waist",
+      "Side Two Front Toe Touching routine",
+      "Waist and back exercises",
+      "Body weight exercises for hips",
+      "Toe touching exercises for back and waist."
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hpJxS5VQKtBL",
+    "name": "Lying Lower Back Stretch ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/4C6IftIpvy.jpg",
+    "bodyParts": [
+      "BACK",
+      "HIPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "ERECTOR SPINAE"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Lower Back Stretch Exercise",
+      "Bodyweight Back Stretch",
+      "Hips Stretching Workout",
+      "Back Pain Relief Exercise",
+      "Bodyweight Exercise for Hips",
+      "Home Workout for Back",
+      "Lower Back Stretching Routine",
+      "Hips and Back Bodyweight Exercise",
+      "Pain Relief Stretch for Lower Back",
+      "Bodyweight Lower Back and Hips Stretch"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hpnZ6oASM662",
+    "name": "Kneeling Push up to Child Pose ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/qEMl4mkIFx.jpg",
+    "bodyParts": [
+      "BACK",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "RECTUS ABDOMINIS"
+    ],
+    "secondaryMuscles": [
+      "SUBSCAPULARIS",
+      "QUADRICEPS"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Kneeling push up workout",
+      "Child pose for waist",
+      "Bodyweight exercise for back and waist",
+      "Kneeling push up to child pose routine",
+      "Exercise for back using body weight",
+      "Kneeling push up technique",
+      "Child pose yoga for waist",
+      "Home workout for back and waist",
+      "Bodyweight workout for back strengthening"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hQEqKxuAfV1D",
+    "name": "Pull-up with Bent Knee between Chairs",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/FJuNSNoybI.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "TRAPEZIUS LOWER FIBERS",
+      "TERES MINOR",
+      "BRACHIORADIALIS",
+      "TRAPEZIUS MIDDLE FIBERS",
+      "INFRASPINATUS",
+      "BRACHIALIS",
+      "BICEPS BRACHII",
+      "TERES MAJOR"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Bent knee pull-ups",
+      "Chair pull-ups",
+      "Home workout for back",
+      "Pull-up variations",
+      "Back strengthening exercises",
+      "Bodyweight exercises for back",
+      "Chair exercises for upper body",
+      "Bent knee chair pull-ups",
+      "DIY pull-up exercises"
+    ],
+    "_bodyPart": "BACK",
+    "imageUrls": {
+      "360p": "https://cdn.exercisedb.dev/media/w/images/Sqp7pCdNPh.jpg",
+      "480p": "https://cdn.exercisedb.dev/media/w/images/FJuNSNoybI.jpg",
+      "720p": "https://cdn.exercisedb.dev/media/w/images/ZI2kTZPRim.jpg",
+      "1080p": "https://cdn.exercisedb.dev/media/w/images/dRT5IXUnd5.jpg"
+    },
+    "videoUrl": "https://cdn.exercisedb.dev/w/videos/nGSaMUr/41n2hQEqKxuAfV1D__Pull-up-with-Bent-Knee-between-Chairs_Back.mp4",
+    "overview": "The Pull-up with Bent Knee between Chairs is a challenging bodyweight exercise that primarily targets the upper body muscles, including the back, arms, and shoulders. It is suitable for individuals at intermediate to advanced fitness levels who are looking for a way to strengthen their upper body without the need for gym equipment. The exercise not only improves muscle strength and endurance, but also enhances core stability and body coordination, making it an excellent option for those aiming for a comprehensive fitness routine.",
+    "instructions": [
+      "Stand between the chairs and grip the backs or the seats of the chairs with each hand, ensuring your grip is firm and secure.",
+      "Slowly lift your body off the ground by pulling up with your arms and shoulders, bending your knees at a 90-degree angle as you rise.",
+      "Hold this position for a few seconds, feeling the tension in your upper body and core muscles.",
+      "Gradually lower your body back down to the starting position, keeping your knees bent, then repeat the exercise for the desired number of repetitions."
+    ],
+    "exerciseTips": [
+      "Proper Form: Start by gripping the tops of the chairs with your palms facing away from you. Bend your knees at a 90-degree angle and cross your ankles. Use your upper body strength to pull yourself up until your chin is above the level of the chairs. Avoid using momentum or swinging your body to pull yourself up; this is a common mistake that can lead to injury and reduces the effectiveness of the exercise.",
+      "Controlled Movement: Lower yourself back down in a slow and controlled manner until your arms are fully extended. Avoid dropping down quickly, as this can strain your muscles and joints.",
+      "Breathing Technique: Breathe in as you lower yourself and breathe out as you pull yourself up. This helps maintain"
+    ],
+    "variations": [
+      "Inverted Row between Chairs: Instead of pulling yourself up, you position yourself underneath the chairs and pull your body up towards them, targeting different muscles.",
+      "One Arm Pull-up between Chairs: This variation involves performing the exercise using only one arm, significantly increasing the difficulty and focusing on unilateral strength.",
+      "L-Sit Pull-up between Chairs: In this variation, you hold your legs out in an L shape in front of you while pulling up, which adds an additional challenge for your core and hip flexors.",
+      "Wide Grip Pull-up between Chairs: By placing your hands wider apart on the chairs, you can target different muscles in your back and shoulders."
+    ],
+    "relatedExerciseIds": [
+      "exr_41n2hftBVLiXgtRQ",
+      "exr_41n2hcdAu4PJ1tSo",
+      "exr_41n2hvgz1rpPCc2x",
+      "exr_41n2hYmrutNPbb4q",
+      "exr_41n2hhXEktwtDPt1",
+      "exr_41n2hUev9wx5JzW6",
+      "exr_41n2hjdYLoFty6Ke",
+      "exr_41n2hMzbcS5RxSy9",
+      "exr_41n2hj8LBGmaDiHT",
+      "exr_41n2hmpnhk73N2Sr"
+    ]
+  },
+  {
+    "exerciseId": "exr_41n2hRH4aTB379Tp",
+    "name": "45 degree hyperextension ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/ZuggCImG8H.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "ERECTOR SPINAE",
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "HAMSTRINGS"
+    ],
+    "keywords": [
+      "45 degree back exercise",
+      "Bodyweight hyperextension workout",
+      "Back strengthening exercises",
+      "45 degree bodyweight back workout",
+      "Hyperextension back exercise",
+      "Bodyweight back hyperextension",
+      "45 degree hyperextension training",
+      "Body weight back strengthening",
+      "45 degree back hyperextension workout",
+      "Back training with body weight"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hsBtDXapcADg",
+    "name": "Pull-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/g0ZmaTcu2Q.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "TRAPEZIUS LOWER FIBERS",
+      "TERES MINOR",
+      "BRACHIALIS",
+      "POSTERIOR DELTOID",
+      "TERES MAJOR",
+      "TRAPEZIUS MIDDLE FIBERS",
+      "INFRASPINATUS",
+      "BRACHIORADIALIS"
+    ],
+    "keywords": [
+      "Body weight back exercise",
+      "Back strengthening pull-ups",
+      "Bodyweight pull-up workout",
+      "Upper body workout",
+      "Home back exercises",
+      "Pull-up training",
+      "Back muscle development exercises",
+      "No-equipment back workout",
+      "Strengthening back with pull-ups",
+      "Bodyweight exercises for back."
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hU4y6EaYXFhr",
+    "name": "Pull up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/gNdMNPVxAj.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "TERES MAJOR",
+      "BRACHIALIS",
+      "BRACHIORADIALIS",
+      "TRAPEZIUS LOWER FIBERS"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Pull up workout",
+      "Strength training for back",
+      "Home back exercises",
+      "Back muscle development",
+      "Upper body workout",
+      "Bodyweight pull ups",
+      "Back strengthening exercises",
+      "Pull up training guide",
+      "Fitness routine for back muscles"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hVCJfpAvJcdU",
+    "name": "Commando Pull-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/tczafQq5N0.jpg",
+    "bodyParts": [
+      "BACK",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "TRAPEZIUS LOWER FIBERS",
+      "TERES MAJOR",
+      "LATISSIMUS DORSI",
+      "INFRASPINATUS",
+      "TRAPEZIUS MIDDLE FIBERS",
+      "OBLIQUES",
+      "TERES MINOR"
+    ],
+    "secondaryMuscles": [
+      "BRACHIORADIALIS",
+      "POSTERIOR DELTOID",
+      "BICEPS BRACHII",
+      "BRACHIALIS"
+    ],
+    "keywords": [
+      "Commando Pull-up workout",
+      "Body weight exercises for back",
+      "Waist strengthening exercises",
+      "Commando Pull-up technique",
+      "Bodyweight back workout",
+      "Commando Pull-up for waist toning",
+      "Back and waist bodyweight exercises",
+      "Commando Pull-up form guide",
+      "How to do Commando Pull-ups",
+      "Bodyweight exercises for back and waist."
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hw1QspZ6uXoW",
+    "name": "Side Toe Touching ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/UX1YlRUBIN.jpg",
+    "bodyParts": [
+      "BACK",
+      "HIPS",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "SARTORIUS"
+    ],
+    "secondaryMuscles": [
+      "TRANSVERSUS ABDOMINIS",
+      "ILIOPSOAS"
+    ],
+    "keywords": [
+      "Bodyweight exercise for back",
+      "Side toe touch workout",
+      "Hips toning exercises",
+      "Waist slimming workouts",
+      "Back strengthening exercises",
+      "Bodyweight exercises for hips",
+      "Side toe touch for waistline",
+      "Bodyweight back workout",
+      "Waist trimming exercises",
+      "Hips and back bodyweight exercise"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hWxnJoGwbJpa",
+    "name": "Superman Row with Towel",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/ixufDWekVb.jpg",
+    "bodyParts": [
+      "BACK",
+      "HIPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "LATISSIMUS DORSI",
+      "ERECTOR SPINAE"
+    ],
+    "secondaryMuscles": [
+      "BICEPS BRACHII",
+      "TERES MINOR",
+      "HAMSTRINGS",
+      "BRACHIORADIALIS",
+      "TERES MAJOR",
+      "INFRASPINATUS",
+      "BRACHIALIS",
+      "POSTERIOR DELTOID"
+    ],
+    "keywords": [
+      "Superman Row exercise",
+      "Bodyweight back exercises",
+      "Superman Towel Row",
+      "Home workouts for back",
+      "Exercises for hips",
+      "Superman Row technique",
+      "Bodyweight exercises for Hips",
+      "Strengthening back with body weight",
+      "Superman Row without equipment",
+      "Towel exercises for back and hips"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hXfpvSshoXWG",
+    "name": "Dumbbell Clean and Press",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/1OBFu6DAxW.jpg",
+    "bodyParts": [
+      "SHOULDERS",
+      "BICEPS",
+      "BACK",
+      "THIGHS"
+    ],
+    "equipments": [
+      "DUMBBELL"
+    ],
+    "exerciseType": "WEIGHTLIFTING",
+    "targetMuscles": [
+      "BICEPS BRACHII",
+      "ANTERIOR DELTOID",
+      "STERNOCLEIDOMASTOID",
+      "POSTERIOR DELTOID",
+      "TRICEPS BRACHII",
+      "RECTUS ABDOMINIS",
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "SOLEUS",
+      "DEEP HIP EXTERNAL ROTATORS",
+      "LATERAL DELTOID",
+      "ERECTOR SPINAE"
+    ],
+    "keywords": [
+      "Dumbbell Clean and Press workout",
+      "Weightlifting with Dumbbells",
+      "Strength training exercises",
+      "Full body workout with Dumbbells",
+      "Dumbbell Clean and Press technique",
+      "Dumbbell exercises for weightlifting",
+      "Clean and Press dumbbell routine",
+      "Home weightlifting exercises",
+      "Dumbbell Clean and Press for muscle gain",
+      "Intense Dumbbell Clean and Press workout."
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hxg75dFGERdp",
+    "name": "L-Pull-up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/DMKexKmHFn.jpg",
+    "bodyParts": [
+      "BACK",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI",
+      "POSTERIOR DELTOID"
+    ],
+    "secondaryMuscles": [
+      "ERECTOR SPINAE",
+      "LEVATOR SCAPULAE",
+      "GLUTEUS MEDIUS"
+    ],
+    "keywords": [
+      "L-Pull-up workout",
+      "Bodyweight back exercise",
+      "L-Pull-up for waist toning",
+      "Bodyweight exercise for back",
+      "L-Pull-up training",
+      "Waist strengthening with L-Pull-up",
+      "Back workout with body weight",
+      "L-Pull-up technique",
+      "L-Pull-up exercise guide",
+      "Bodyweight L-Pull-up routine"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2hXszY7TgwKy4",
+    "name": "Chin-Up",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/S7KbaJxkei.jpg",
+    "bodyParts": [
+      "BACK"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "LATISSIMUS DORSI"
+    ],
+    "secondaryMuscles": [
+      "TRAPEZIUS MIDDLE FIBERS",
+      "PECTORALIS MAJOR STERNAL HEAD",
+      "POSTERIOR DELTOID",
+      "TRAPEZIUS LOWER FIBERS",
+      "BRACHIALIS",
+      "BRACHIORADIALIS",
+      "TERES MAJOR"
+    ],
+    "keywords": [
+      "Bodyweight back exercise",
+      "Chin-Up workout",
+      "Upper body strength training",
+      "Home back workout",
+      "Bodyweight fitness routine",
+      "Back muscle toning",
+      "Strength exercises for back",
+      "Chin-Up technique",
+      "Back strengthening exercises",
+      "Bodyweight pull-up workout"
+    ],
+    "_bodyPart": "BACK"
+  },
+  {
+    "exerciseId": "exr_41n2haAabPyN5t8y",
+    "name": "Side Lunge",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/RB7NBcf79I.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "ADDUCTOR MAGNUS",
+      "GLUTEUS MEDIUS",
+      "SOLEUS",
+      "TENSOR FASCIAE LATAE"
+    ],
+    "keywords": [
+      "Body weight exercise for thighs",
+      "Quadriceps strengthening exercises",
+      "Side Lunge workout",
+      "Bodyweight workout for legs",
+      "Thigh toning exercises",
+      "Side Lunge body weight exercise",
+      "Quadriceps body weight workout",
+      "Thigh strengthening workouts",
+      "Body weight Side Lunge",
+      "Leg toning exercises with body weight"
+    ],
+    "_bodyPart": "THIGHS",
+    "imageUrls": {
+      "360p": "https://cdn.exercisedb.dev/media/w/images/W0pwuo0l11.jpg",
+      "480p": "https://cdn.exercisedb.dev/media/w/images/RB7NBcf79I.jpg",
+      "720p": "https://cdn.exercisedb.dev/media/w/images/BdedvG0Wss.jpg",
+      "1080p": "https://cdn.exercisedb.dev/media/w/images/7fcbHVQgFb.jpg"
+    },
+    "videoUrl": "https://cdn.exercisedb.dev/w/videos/ufB3wo9/41n2haAabPyN5t8y__Side-Lunge_Thighs.mp4",
+    "overview": "The Side Lunge is a highly effective lower body exercise that targets the quadriceps, hamstrings, glutes, and hip muscles, enhancing strength, balance, and flexibility. It's suitable for everyone from beginners to advanced fitness enthusiasts, as it can be modified to accommodate different fitness levels. Individuals may choose to incorporate Side Lunges into their workout routine to improve lateral movements, increase leg power, and promote overall body coordination.",
+    "instructions": [
+      "Take a big step to the right with your right foot, keeping your left foot in place.",
+      "Bend your right knee and push your hips back, lowering your body into a lunge position on your right side. Keep your left leg straight and your right knee directly above your right foot.",
+      "Push through your right foot to return to the starting position.",
+      "Repeat the movement on your left side to complete one repetition. Continue to alternate sides for your desired number of repetitions."
+    ],
+    "exerciseTips": [
+      "Avoid Leaning Forward: A common mistake is leaning too far forward when performing a side lunge. This can put unnecessary stress on your knees and back. Instead, keep your chest lifted and your spine neutral throughout the movement.",
+      "Control Your Movement: Side lunges should be done in a controlled manner. Avoid rushing through the movement or using momentum to carry you from side to side. This will ensure you're effectively working your muscles and not risking injury.",
+      "Mind Your Knee Alignment: When you're in the lunge, make sure your knee"
+    ],
+    "variations": [
+      "Side Lunge with a Twist: In this variation, you perform a standard side lunge but add a torso twist towards the lunging leg to engage your core.",
+      "Side Lunge with a Dumbbell: This variation involves holding a dumbbell in both hands while performing the side lunge to add resistance and increase intensity.",
+      "Side Lunge to Balance: This involves performing a side lunge and then balancing on one leg as you return to standing position, aiding in improving balance and stability.",
+      "Side Lunge with a Knee Lift: In this variation, after performing a side lunge, you lift the lunging knee towards your chest as you stand, engaging your core and lower body."
+    ],
+    "relatedExerciseIds": [
+      "exr_41n2hRaLxY7YfNbg",
+      "exr_41n2hM7G2Tz9EqjH",
+      "exr_41n2hjnQCBv1B1NE",
+      "exr_41n2hupd1dcr7ND1",
+      "exr_41n2hpoYj7b2sGCX",
+      "exr_41n2hGNrmUnF58Yy",
+      "exr_41n2hXvPyEyMBgNR",
+      "exr_41n2hKnBXgBN3rD3",
+      "exr_41n2hpB92SjPqVeM",
+      "exr_41n2huiWrun35Vo2"
+    ]
+  },
+  {
+    "exerciseId": "exr_41n2hbdZww1thMKz",
+    "name": "Jump Squat ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/YfCTLiECo2.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "SOLEUS",
+      "ADDUCTOR MAGNUS"
+    ],
+    "keywords": [
+      "Jump Squat workout",
+      "Body weight exercises for thighs",
+      "Quadriceps strengthening exercises",
+      "Thigh toning workouts",
+      "Body weight Jump Squat",
+      "Jump Squat for leg muscles",
+      "Home workouts for thighs",
+      "Quadriceps exercises with no equipment",
+      "Jump Squat body weight exercise",
+      "Thigh and Quadriceps workout"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hd78zujKUEWK",
+    "name": "Single Leg Squat ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/MosYINt7dV.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "SOLEUS",
+      "ADDUCTOR MAGNUS"
+    ],
+    "keywords": [
+      "Bodyweight exercise for thighs",
+      "Quadriceps strengthening exercises",
+      "Single Leg Squat workout",
+      "Thigh toning exercises",
+      "Bodyweight leg exercises",
+      "Single Leg Squat for quads",
+      "Home workout for thighs",
+      "Quadriceps bodyweight exercise",
+      "Single leg bodyweight squat",
+      "Thigh strengthening exercises"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hGNrmUnF58Yy",
+    "name": "Reverse Lunge ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/XUs62RE49n.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "QUADRICEPS",
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "HAMSTRINGS",
+      "ADDUCTOR MAGNUS"
+    ],
+    "keywords": [
+      "Bodyweight leg workout",
+      "Quadriceps strengthening exercises",
+      "Thigh toning workouts",
+      "At-home leg exercises",
+      "No-equipment lunge variations",
+      "Bodyweight reverse lunge",
+      "Quadriceps and thigh workout",
+      "Bodyweight exercises for thighs",
+      "Reverse lunge bodyweight exercise",
+      "Lower body strength exercises"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hGRSg9WCoTYT",
+    "name": "Jumping Pistol Squat",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/ik43Xn15Kb.jpg",
+    "bodyParts": [
+      "HAMSTRINGS",
+      "THIGHS",
+      "HAMSTRINGS",
+      "CALVES"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "PLYOMETRICS",
+    "targetMuscles": [
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "GLUTEUS MEDIUS",
+      "ILIOPSOAS",
+      "HAMSTRINGS",
+      "ADDUCTOR BREVIS",
+      "GRACILIS",
+      "GLUTEUS MAXIMUS",
+      "BICEPS BRACHII"
+    ],
+    "keywords": [
+      "Body weight exercises",
+      "Plyometrics workouts",
+      "Jumping Pistol Squat tutorial",
+      "Advanced body weight exercises",
+      "Lower body plyometrics",
+      "Intense leg workouts",
+      "No-equipment fitness routines",
+      "Plyometric leg exercise",
+      "Single-leg jumping squats",
+      "Advanced pistol squat variations"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hHRszDHarrxK",
+    "name": "Split Squats",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/GGahn2Bwpi.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "SOLEUS",
+      "ADDUCTOR MAGNUS"
+    ],
+    "keywords": [
+      "Bodyweight Split Squats",
+      "Quadriceps Strengthening Exercises",
+      "Thigh Workout at Home",
+      "No Equipment Leg Exercises",
+      "Split Squats for Thigh Toning",
+      "Bodyweight Exercises for Quadriceps",
+      "Home Workout for Thighs",
+      "Lower Body Strength Workout",
+      "Split Squats Bodyweight Exercise",
+      "Fitness Routine for Thighs and Quadriceps"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hKiaWSZQTqgE",
+    "name": "Lever stepper",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/oA2FarJMAw.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "CARDIO",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "GASTROCNEMIUS",
+      "SOLEUS",
+      "HAMSTRINGS"
+    ],
+    "keywords": [
+      "Bodyweight cardio exercises",
+      "Lever stepper workout",
+      "Cardiovascular lever stepping",
+      "Bodyweight lever stepper routine",
+      "Cardio lever stepper exercises",
+      "Lever stepper for heart health",
+      "Body resistance lever stepper",
+      "Lever stepping fitness routine",
+      "Home cardio workout with lever stepper",
+      "Full body cardio exercise lever stepper"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hmbfYcYtedgz",
+    "name": "Bridge Pose Setu Bandhasana",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/IzBYapPSlM.jpg",
+    "bodyParts": [
+      "THIGHS",
+      "FULL BODY",
+      "SHOULDERS",
+      "WAIST"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "YOGA",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "GRACILIS"
+    ],
+    "secondaryMuscles": [
+      "QUADRICEPS",
+      "ERECTOR SPINAE",
+      "GASTROCNEMIUS"
+    ],
+    "keywords": [
+      "Bridge Pose tutorial",
+      "Setu Bandhasana guide",
+      "Yoga bodyweight exercises",
+      "How to do Bridge Pose",
+      "Benefits of Setu Bandhasana",
+      "Yoga for back strength",
+      "Bodyweight exercises for flexibility",
+      "Bridge Pose step-by-step",
+      "Improving posture with yoga",
+      "Setu Bandhasana for beginners"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hmFcGGUCS289",
+    "name": "Walking High Knees Lunge",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/ZxaRouBw7h.jpg",
+    "bodyParts": [
+      "THIGHS",
+      "QUADRICEPS",
+      "HAMSTRINGS",
+      "CALVES",
+      "HIPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "CARDIO",
+    "targetMuscles": [
+      "TENSOR FASCIAE LATAE",
+      "SPLENIUS",
+      "RECTUS ABDOMINIS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "HAMSTRINGS",
+      "BICEPS BRACHII",
+      "GRACILIS",
+      "SARTORIUS"
+    ],
+    "keywords": [
+      "High Knees Lunge Workout",
+      "Bodyweight Cardio Exercise",
+      "Walking Lunge with High Knees",
+      "Bodyweight High Knees Lunge",
+      "Cardiovascular Walking Lunge Exercise",
+      "High Knees Lunge Bodyweight Training",
+      "Walking High Knees Lunge Cardio Workout",
+      "High Knees Bodyweight Lunge Exercise",
+      "Cardio Training with Walking High Knees Lunge",
+      "Bodyweight Exercise for Cardio - Walking High Knees Lunge"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hmGR8WuVfe1U",
+    "name": "Squat",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/QBL8IYGdYK.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "QUADRICEPS",
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "ADDUCTOR MAGNUS",
+      "SOLEUS"
+    ],
+    "keywords": [
+      "Bodyweight Squat exercise",
+      "Quadriceps strengthening exercises",
+      "Thighs workout",
+      "Home workout for thighs",
+      "Squatting for muscle gain",
+      "Bodyweight exercises for quadriceps",
+      "Lower body workout",
+      "Fitness routine for thighs",
+      "Quadriceps home workout",
+      "Squat exercise for leg strength"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hnFD2bT6sruf",
+    "name": "Sliding Floor Bridge Curl on Towel",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/f1c1Qr2316.jpg",
+    "bodyParts": [
+      "HAMSTRINGS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "HAMSTRINGS",
+      "RECTUS ABDOMINIS"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Body weight hamstring exercise",
+      "Sliding floor bridge curl",
+      "Towel workout for thighs",
+      "Hamstring strengthening exercises",
+      "Bodyweight thigh workout",
+      "Home workout for hamstrings",
+      "No-equipment hamstring exercises",
+      "Sliding bridge curl on towel",
+      "Floor exercises for thigh toning",
+      "Bodyweight exercises for strong hamstrings."
+    ],
+    "_bodyPart": "THIGHS",
+    "imageUrls": {
+      "360p": "https://cdn.exercisedb.dev/media/w/images/tg5iRb5vqI.jpg",
+      "480p": "https://cdn.exercisedb.dev/media/w/images/f1c1Qr2316.jpg",
+      "720p": "https://cdn.exercisedb.dev/media/w/images/yRdFp3h136.jpg",
+      "1080p": "https://cdn.exercisedb.dev/media/w/images/yafdTGWoVU.jpg"
+    },
+    "videoUrl": "https://cdn.exercisedb.dev/w/videos/UintDRh/41n2hnFD2bT6sruf__Sliding-Floor-Bridge-Curl-on-Towel_Thighs.mp4",
+    "overview": "The Sliding Floor Bridge Curl on Towel is a dynamic exercise that primarily targets the hamstrings, glutes, and core, providing an effective way to strengthen and tone these areas. This exercise is suitable for individuals of all fitness levels who wish to improve their lower body strength, stability, and flexibility. People would want to perform this exercise because it not only enhances muscle tone and definition, but also improves overall balance and posture, contributing to better physical performance in day-to-day activities and sports.",
+    "instructions": [
+      "Push your hips upward into a bridge position, keeping your upper back and shoulders on the ground, and your hands by your sides.",
+      "Slowly slide your feet away from your body using the towel, extending your legs fully while keeping your hips elevated.",
+      "After fully extending your legs, slowly pull your feet back towards your body, using your hamstrings and glutes to pull while maintaining the bridge position.",
+      "Lower your hips back to the floor to complete one repetition, then repeat this process for the desired number of repetitions."
+    ],
+    "exerciseTips": [
+      "Engage Your Core: Before you start the exercise, make sure to engage your core. This means tightening your abdominal muscles as if you were about to be punched in the stomach. This will help to stabilize your body and protect your lower back during the exercise. A common mistake is to let the stomach relax, which can lead to lower back strain.",
+      "Smooth Movement: The movement should be slow and controlled. As you slide your feet away from your body, your hips should lower"
+    ],
+    "variations": [
+      "Sliding Floor Bridge Curl on Towel with Resistance Band: Adding a resistance band to the exercise can increase the intensity and work the muscles harder.",
+      "Sliding Floor Bridge Curl on Towel with Weighted Ankles: You can add ankle weights to increase the difficulty level and enhance muscle toning and strength.",
+      "Sliding Floor Bridge Curl on Towel with Stability Ball: Instead of a towel, use a stability ball for this variation. This will not only engage your hamstrings but also improve your balance and stability.",
+      "Sliding Floor Bridge Curl on Towel with Elevated Feet: Elevating your feet during the exercise will increase the intensity, making it more challenging and effective for your glutes and hamstrings."
+    ],
+    "relatedExerciseIds": [
+      "exr_41n2hUfJFhaZRgFX",
+      "exr_41n2hgVcPtubq7WG",
+      "exr_41n2hkW7vE9HqgsA",
+      "exr_41n2hafnkNsM1R2r",
+      "exr_41n2hcDXFbtWCcbq",
+      "exr_41n2hNESNATNVCRT",
+      "exr_41n2hHDfNuArHGsS",
+      "exr_41n2hUPXsbLtFeCg",
+      "exr_41n2hntozfG4DqUv",
+      "exr_41n2hMvDESriFPoM"
+    ]
+  },
+  {
+    "exerciseId": "exr_41n2hNjcmNgtPJ1H",
+    "name": "Bodyweight Rear Lunge",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/SmhYqZUV9x.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "QUADRICEPS",
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "ADDUCTOR MAGNUS",
+      "SOLEUS"
+    ],
+    "keywords": [
+      "Bodyweight leg exercise",
+      "Rear Lunge workout",
+      "Quadriceps strengthening exercises",
+      "Thigh toning workouts",
+      "Bodyweight exercises for thighs",
+      "No-equipment lunge exercise",
+      "Home workout for quadriceps",
+      "Bodyweight Rear Lunge tutorial",
+      "Bodyweight exercises for leg muscles",
+      "Rear Lunge bodyweight fitness routine"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hnougzKKhhqu",
+    "name": "Butterfly Yoga Pose",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/onjy3jQNg6.jpg",
+    "bodyParts": [
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "SARTORIUS",
+      "BRACHIALIS"
+    ],
+    "secondaryMuscles": [
+      "PECTINEUS",
+      "BICEPS BRACHII",
+      "ADDUCTOR LONGUS",
+      "ADDUCTOR BREVIS",
+      "ADDUCTOR MAGNUS"
+    ],
+    "keywords": [
+      "Butterfly Yoga Pose tutorial",
+      "Bodyweight thigh exercises",
+      "Yoga poses for thighs",
+      "Butterfly pose in yoga",
+      "Yoga exercises for thigh strength",
+      "At-home thigh workouts",
+      "Butterfly Yoga Pose benefits",
+      "Yoga for thigh toning",
+      "Bodyweight exercises for thighs",
+      "Detailed guide on Butterfly Yoga Pose"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2homrPqqs8coG",
+    "name": "Stair Up ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/N0lIgwPUgz.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "QUADRICEPS",
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "ADDUCTOR MAGNUS",
+      "SOLEUS"
+    ],
+    "keywords": [
+      "Bodyweight stair exercises",
+      "Quadriceps stair workouts",
+      "Thigh toning stair exercises",
+      "Bodyweight step-up exercises",
+      "Stair climbing for leg strength",
+      "Stair workout for thighs",
+      "Quadriceps strengthening stair routine",
+      "Bodyweight exercises for thigh toning",
+      "Stair up exercises for quads",
+      "Stair ascents for leg muscles"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hpLLs1uU5atr",
+    "name": "Bulgarian Split Squat",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/HLm5e1fMdO.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "ADDUCTOR MAGNUS",
+      "SOLEUS"
+    ],
+    "keywords": [
+      "Bulgarian Split Squat workout",
+      "Body weight exercises for thighs",
+      "Quadriceps strengthening exercises",
+      "Body weight Bulgarian Split Squat",
+      "Bulgarian Split Squat for leg muscles",
+      "Home exercises for thighs",
+      "No equipment quad exercises",
+      "Bulgarian Split Squat technique",
+      "Body weight exercises for strong legs",
+      "How to do Bulgarian Split Squat."
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hPvwqp7Pwvks",
+    "name": "Seated Single Leg Hamstring Stretch",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/YdXpEDZsr4.jpg",
+    "bodyParts": [
+      "HAMSTRINGS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "HAMSTRINGS"
+    ],
+    "secondaryMuscles": [],
+    "keywords": [
+      "Single Leg Hamstring Stretch",
+      "Bodyweight Hamstring Exercises",
+      "Seated Hamstring Stretch",
+      "Thigh Stretching Exercises",
+      "Bodyweight Leg Stretches",
+      "Seated Single Leg Stretch",
+      "Hamstring Stretching Techniques",
+      "Single Leg Thigh Stretch",
+      "Bodyweight Hamstring Stretch",
+      "Seated Hamstring and Thigh Stretch."
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hQDiSwTZXM4F",
+    "name": "Goblet Squat",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/lwT5fwjbAU.jpg",
+    "bodyParts": [
+      "THIGHS"
+    ],
+    "equipments": [
+      "DUMBBELL"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "QUADRICEPS",
+      "HAMSTRINGS",
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "ERECTOR SPINAE",
+      "ADDUCTOR MAGNUS",
+      "GASTROCNEMIUS"
+    ],
+    "keywords": [
+      "Goblet Squat Workout",
+      "Dumbbell Goblet Squat",
+      "Thigh Toning Exercises",
+      "Dumbbell Exercises for Thighs",
+      "Goblet Squat Thigh Workout",
+      "Strengthen Thighs with Goblet Squat",
+      "Dumbbell Goblet Squat Technique",
+      "Goblet Squat for Leg Muscle",
+      "Thigh Strengthening Exercises",
+      "Goblet Squat with Dumbbell."
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hQHmRSoUkk9F",
+    "name": "Walking Lunge",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/g2s9vxBfWN.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "ADDUCTOR MAGNUS",
+      "SOLEUS"
+    ],
+    "keywords": [
+      "Bodyweight exercise for thighs",
+      "Quadriceps strengthening exercise",
+      "Walking Lunge workout",
+      "Bodyweight lunge movement",
+      "Thigh toning exercises",
+      "Quadricep exercises with no equipment",
+      "Walking Lunge for leg muscle",
+      "Bodyweight exercises for lower body",
+      "Walking Lunge technique",
+      "Strengthening thighs with lunges."
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hQp1pR7heQq9",
+    "name": "Dumbbell Stiff Leg Deadlift ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/4TFtrlbBxS.jpg",
+    "bodyParts": [
+      "THIGHS"
+    ],
+    "equipments": [
+      "DUMBBELL"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "ERECTOR SPINAE"
+    ],
+    "secondaryMuscles": [
+      "HAMSTRINGS"
+    ],
+    "keywords": [
+      "Dumbbell Stiff Leg Deadlift workout",
+      "Thigh strengthening exercises with dumbbells",
+      "Dumbbell exercises for thighs",
+      "Stiff Leg Deadlift using dumbbells",
+      "Dumbbell workout for thigh muscles",
+      "How to do Dumbbell Stiff Leg Deadlift",
+      "Thigh toning dumbbell exercises",
+      "Stiff Leg Deadlift for thigh strength",
+      "Dumbbell training for stronger thighs",
+      "Techniques for Dumbbell Stiff Leg Deadlift"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hRaLxY7YfNbg",
+    "name": "Side Lunge Stretch",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/b3R4TvyD30.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "TENSOR FASCIAE LATAE",
+      "SOLEUS",
+      "ADDUCTOR MAGNUS",
+      "GLUTEUS MEDIUS"
+    ],
+    "keywords": [
+      "Body weight exercise for thighs",
+      "Quadriceps stretching workout",
+      "Side Lunge Stretch exercise",
+      "Bodyweight thigh exercise",
+      "Side lunge for quad stretch",
+      "Bodyweight lunge exercise",
+      "Quadriceps and thigh workout",
+      "Side lunge bodyweight exercise",
+      "Thigh strengthening exercises",
+      "Stretching exercises for quadriceps"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hrHSqBnVWRRB",
+    "name": "Bodyweight Single Leg Deadlift",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/VeFtV3UOHd.jpg",
+    "bodyParts": [
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "SOLEUS",
+      "ADDUCTOR MAGNUS",
+      "ERECTOR SPINAE",
+      "HAMSTRINGS",
+      "QUADRICEPS"
+    ],
+    "keywords": [
+      "Single Leg Deadlift workout",
+      "Bodyweight thigh exercises",
+      "Bodyweight Single Leg Deadlift routine",
+      "Thigh strengthening exercises",
+      "No-equipment thigh workouts",
+      "Single leg bodyweight exercises",
+      "Bodyweight workouts for thighs",
+      "Single leg deadlift without weights",
+      "Bodyweight exercises for leg strength",
+      "Unilateral lower body exercises"
+    ],
+    "_bodyPart": "THIGHS",
+    "imageUrls": {
+      "360p": "https://cdn.exercisedb.dev/media/w/images/rlUByP5FBY.jpg",
+      "480p": "https://cdn.exercisedb.dev/media/w/images/VeFtV3UOHd.jpg",
+      "720p": "https://cdn.exercisedb.dev/media/w/images/ElBYoU57Gr.jpg",
+      "1080p": "https://cdn.exercisedb.dev/media/w/images/dGKG03PNL7.jpg"
+    },
+    "videoUrl": "https://cdn.exercisedb.dev/w/videos/xdO6Mmu/41n2hrHSqBnVWRRB__Bodyweight-Single-Leg-Deadlift_Thighs.mp4",
+    "overview": "The Bodyweight Single Leg Deadlift is a versatile exercise that primarily targets the hamstrings, glutes, lower back, and core, enhancing overall body strength and stability. It's an excellent choice for individuals at any fitness level, particularly those seeking to improve balance, coordination, and unilateral strength. By incorporating this exercise into their routine, individuals can reap the benefits of better posture, injury prevention, and enhanced athletic performance.",
+    "instructions": [
+      "Slowly bend forward at the hips, keeping your back straight and extending your free leg behind you for balance.",
+      "Continue to bend forward until your torso is parallel to the floor, or as far as your flexibility allows, making sure to keep your standing leg slightly bent.",
+      "Pause for a moment at the bottom of the movement, then slowly return to the starting position, maintaining balance and control throughout the movement.",
+      "Repeat the exercise for your desired number of repetitions, then switch legs and perform the same number of repetitions with the other leg."
+    ],
+    "exerciseTips": [
+      "Keep Your Focus: Balance is key in this exercise. To help maintain balance, find a fixed point in front of you and keep your gaze on it throughout the movement. This will help you stay steady and ensure you are performing the exercise correctly.",
+      "Use Your Hips: The single leg deadlift is a hip hinge movement, meaning the action should come from your hips, not your knees. Push your hips back as you lower your body and drive them forward as you return to the standing position.",
+      "Avoid Rushing: Many people rush through the exercise, which can lead to a loss of balance and poor form. Take your time with each repetition"
+    ],
+    "variations": [
+      "BOSU Ball Single Leg Deadlift: This variation is performed on a BOSU ball to improve balance and stability.",
+      "Single Leg Deadlift with Knee Drive: This variation adds a knee drive at the end of the movement to engage the core and hip flexors.",
+      "Single Leg Deadlift with Resistance Band: This variation uses a resistance band to add tension and increase the difficulty of the exercise.",
+      "Single Leg Deadlift with Jump: This variation adds a jump at the end of the movement to increase cardiovascular intensity and engage the calf muscles."
+    ],
+    "relatedExerciseIds": [
+      "exr_41n2hjCiqXL2akUy",
+      "exr_41n2hHK3NVr6vKap",
+      "exr_41n2ht9WKDFQhfU3",
+      "exr_41n2hwDBRXUz4TbC",
+      "exr_41n2hhgGuzrfT54s",
+      "exr_41n2hKnBXgBN3rD3",
+      "exr_41n2hpB92SjPqVeM",
+      "exr_41n2huiWrun35Vo2",
+      "exr_41n2hzmoz2cs6zE3",
+      "exr_41n2hXvPyEyMBgNR"
+    ]
+  },
+  {
+    "exerciseId": "exr_41n2hSMjcavNjk3c",
+    "name": "Quick Feet ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/lbL11yEndU.jpg",
+    "bodyParts": [
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS"
+    ],
+    "secondaryMuscles": [
+      "BRACHIORADIALIS",
+      "ADDUCTOR MAGNUS"
+    ],
+    "keywords": [
+      "Quick Feet workout",
+      "Bodyweight exercises for thighs",
+      "Quick Feet thigh exercise",
+      "Bodyweight thigh training",
+      "Quick Feet fitness routine",
+      "Thigh toning exercises",
+      "Bodyweight Quick Feet exercise",
+      "Quick Feet for leg strength",
+      "Home exercises for thighs",
+      "Quick Feet leg workout"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hsSnmS946i2k",
+    "name": "Single Leg Squat with Support",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/cxJSiiWh9N.jpg",
+    "bodyParts": [
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "INFRASPINATUS",
+      "TENSOR FASCIAE LATAE",
+      "STERNOCLEIDOMASTOID"
+    ],
+    "keywords": [
+      "Body weight thigh exercises",
+      "Single leg squat variations",
+      "Supported one leg squat",
+      "Thigh strengthening workouts",
+      "Bodyweight exercises for thighs",
+      "Single leg squat with support tutorial",
+      "How to do supported single leg squats",
+      "Body weight exercises for leg toning",
+      "Single leg balance and squat exercises",
+      "Thigh targeted body weight workouts"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hUVNhvcS73Dt",
+    "name": "Jump Split",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/6nX5znelOT.jpg",
+    "bodyParts": [
+      "FULL BODY",
+      "THIGHS",
+      "HAMSTRINGS",
+      "QUADRICEPS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "PLYOMETRICS",
+    "targetMuscles": [
+      "QUADRICEPS",
+      "HAMSTRINGS"
+    ],
+    "secondaryMuscles": [
+      "SARTORIUS",
+      "GRACILIS",
+      "ADDUCTOR BREVIS",
+      "ADDUCTOR MAGNUS"
+    ],
+    "keywords": [
+      "Jump Split workouts",
+      "Plyometric exercises",
+      "Bodyweight training",
+      "High-intensity jump split",
+      "Lower body plyometric exercises",
+      "Jump split for agility",
+      "Bodyweight jump split exercise",
+      "Plyometric jump split training",
+      "Leg strengthening jump split",
+      "Advanced bodyweight exercises"
+    ],
+    "_bodyPart": "THIGHS"
+  },
+  {
+    "exerciseId": "exr_41n2hvjrFJ2KjzGm",
+    "name": "Sit ",
+    "imageUrl": "https://cdn.exercisedb.dev/media/w/images/QjeHnOqQNh.jpg",
+    "bodyParts": [
+      "QUADRICEPS",
+      "THIGHS"
+    ],
+    "equipments": [
+      "BODY WEIGHT"
+    ],
+    "exerciseType": "STRENGTH",
+    "targetMuscles": [
+      "GLUTEUS MAXIMUS",
+      "QUADRICEPS"
+    ],
+    "secondaryMuscles": [
+      "ADDUCTOR MAGNUS",
+      "SOLEUS"
+    ],
+    "keywords": [
+      "Bodyweight sit exercise",
+      "Quadriceps strengthening exercises",
+      "Thigh workout at home",
+      "Bodyweight exercises for thighs",
+      "Sit exercise for quads",
+      "No-equipment thigh workout",
+      "Bodyweight quadriceps workout",
+      "Home exercises for strong thighs",
+      "Sit exercise for leg muscles",
+      "Training quadriceps without weights"
+    ],
+    "_bodyPart": "THIGHS"
+  }
+]

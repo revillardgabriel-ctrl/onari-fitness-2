@@ -1,0 +1,68 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "hosting": {
+    "public": "deploy",
+    "ignore": [
+      "firebase.json",
+      "**/.DS_Store",
+      "**/.git",
+      "mockup-split.html",
+      "prompt.nutrition.md"
+    ],
+    "rewrites": [
+      {
+        "source": "/api/ai",
+        "run": { "serviceId": "ai", "region": "us-central1" }
+      },
+      {
+        "source": "/api/aiImage",
+        "run": { "serviceId": "aiimage", "region": "us-central1" }
+      },
+      {
+        "source": "/api/stripe/setup",
+        "function": "stripeSetup"
+      },
+      {
+        "source": "/api/stripe/checkout",
+        "function": "stripeCheckout"
+      },
+      {
+        "source": "/api/stripe/portal",
+        "function": "stripePortal"
+      },
+      {
+        "source": "/api/stripe/sync",
+        "function": "stripeSync"
+      },
+      {
+        "source": "/api/stripe/cancel",
+        "function": "stripeCancel"
+      },
+      {
+        "source": "/api/stripe/webhook",
+        "function": "stripeWebhook"
+      },
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, no-store, must-revalidate"
+          }
+        ]
+      }
+    ]
+  }
+}
