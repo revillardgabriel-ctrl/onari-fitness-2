@@ -3,7 +3,7 @@
    Offline-first + Notifications repos
    ═══════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'onari-v2';
+const CACHE_NAME = 'onari-v23-security';
 const SHELL = ['/'];
 
 // ── Install : mise en cache du shell ──────────────────
