@@ -4030,6 +4030,12 @@ html:not(.dark) #profil-sub-badge {
         Continuer avec Google
       </button>
 
+      <!-- Apple (obligatoire App Store dès qu'un login tiers est proposé) -->
+      <button onclick="authApple()" id="auth-btn-apple" class="auth-btn-google" style="margin-bottom:16px;background:#000;color:#fff;border-color:#000">
+        <svg width="16" height="18" viewBox="0 0 814 1000" fill="currentColor"><path d="M788 341c-6 4-109 62-109 190 0 148 130 200 134 201-1 3-21 71-69 141-43 61-88 122-156 122s-86-40-165-40c-77 0-104 41-167 41s-107-57-157-126C41 786 0 661 0 543c0-190 123-291 245-291 64 0 118 42 159 42 39 0 99-45 172-45 28 0 128 3 212 92zM554 159c32-38 55-91 55-144 0-7-1-15-2-21-52 2-115 35-152 79-30 34-58 87-58 141 0 8 1 16 2 19 3 1 9 2 14 2 47 0 106-32 141-76z"/></svg>
+        Continuer avec Apple
+      </button>
+
       <!-- Séparateur -->
       <div class="auth-divider">
         <div class="auth-divider-line"></div>
@@ -4873,6 +4879,17 @@ async function _deleteAccount() {
           // Supprimer custom_foods
           const cfSnap = await _fbDB.collection('users').doc(uid).collection('custom_foods').get().catch(() => null);
           if (cfSnap) await Promise.all(cfSnap.docs.map(d => d.ref.delete().catch(() => {})));
+          // ── Données SOCIALES publiques (sinon elles restent visibles après suppression !)
+          try {
+            const soc = JSON.parse(localStorage.getItem(KEYS.social) || '{}');
+            if (soc.pseudo) await _fbDB.collection('pseudos').doc(soc.pseudo).delete().catch(() => {});
+          } catch(_) {}
+          await _fbDB.collection('publicProfiles').doc(uid).delete().catch(() => {});
+          await _fbDB.collection('users').doc(uid).collection('social').doc('profile').delete().catch(() => {});
+          const amisSnap = await _fbDB.collection('users').doc(uid).collection('amis').get().catch(() => null);
+          if (amisSnap) await Promise.all(amisSnap.docs.map(d => d.ref.delete().catch(() => {})));
+          const reqSnap = await _fbDB.collection('users').doc(uid).collection('friendRequests').get().catch(() => null);
+          if (reqSnap) await Promise.all(reqSnap.docs.map(d => d.ref.delete().catch(() => {})));
           // Supprimer le document utilisateur racine
           await _fbDB.collection('users').doc(uid).delete().catch(() => {});
         }
@@ -13718,9 +13735,9 @@ const TECHNIQUES_DEF = [
 /* ── État global de création ── */
 let _pc = { step:'discipline', discipline:'muscu', nom:'', type:'PPL', semaines:8, frequence:5, niveau:'intermediaire', objectif:'hypertrophie', seances:[], curSeance:0, curExo:0, curSemaine:1, weekOverrides:{} };
 
-/* Retourne la bibliothèque d'exercices de la discipline courante */
+/* Retourne la bibliothèque d'exercices de la séance courante (fallback programme) */
 function _pcGetExoLib() {
-  const d = _pc.discipline || 'muscu';
+  const d = (_pc.seances && _pc.seances[_pc.curSeance]?.discipline) || _pc.discipline || 'muscu';
   if (d === 'crossfit') return EXERCICE_LIB_CROSSFIT;
   if (d === 'hyrox')    return EXERCICE_LIB_HYROX;
   if (d === 'bw')       return EXERCICE_LIB_BW;
@@ -14694,15 +14711,7 @@ function pcSetDiscipline(disc) {
   _pc.type      = types[0].id;
   _pc.objectif  = (objs.find(o => o.id === _profObj) ? _profObj : null) || objs[0].id;
   _pc.frequence = freqs.includes(_profFreq) ? _profFreq : freqs[Math.floor(freqs.length / 2)];
-  // Format par défaut : circuits pour les disciplines fonctionnelles
-  _pc.circuitDefault = ['crossfit','bw','hyrox'].includes(disc);
   _pcRefresh(renderProgDiscipline(), true);
-}
-
-function pcSetCircuitDefault(v) {
-  _pcSyncNom();
-  _pc.circuitDefault = !!v;
-  _pcRefresh(renderProgQ(), true);
 }
 
 function pcDiscipline2Q() {
@@ -15054,23 +15063,6 @@ function renderProgQ() {
       <div class="space-y-2">${goalCards}</div>
     </div>
 
-    ${['crossfit','bw','hyrox'].includes(_pc.discipline) ? `
-    <div class="py-5 border-t border-slate-100 dark:border-slate-800">
-      <h3 class="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Format des séances</h3>
-      <p class="text-[11px] text-slate-400 mb-3">Tu pourras ajuster séance par séance ensuite.</p>
-      <div class="grid grid-cols-2 gap-2">
-        <button onclick="pcSetCircuitDefault(true)" class="p-3 rounded-2xl border-2 text-left transition-all active:scale-95 ${_pc.circuitDefault !== false ? 'border-orange-400 bg-orange-50 dark:bg-orange-900/15' : 'border-slate-200 dark:border-slate-700'}">
-          <div class="text-lg mb-0.5">⚡</div>
-          <div class="font-black text-sm ${_pc.circuitDefault !== false ? 'text-orange-500' : 'text-slate-500'}">Circuits (WOD)</div>
-          <div class="text-[10px] text-slate-400 leading-tight mt-0.5">Rounds chronométrés, repos réglables</div>
-        </button>
-        <button onclick="pcSetCircuitDefault(false)" class="p-3 rounded-2xl border-2 text-left transition-all active:scale-95 ${_pc.circuitDefault === false ? 'border-[#0ddff2] bg-[#0ddff2]/10' : 'border-slate-200 dark:border-slate-700'}">
-          <div class="text-lg mb-0.5">💪</div>
-          <div class="font-black text-sm ${_pc.circuitDefault === false ? 'text-[#0ddff2]' : 'text-slate-500'}">Classique</div>
-          <div class="text-[10px] text-slate-400 leading-tight mt-0.5">Séries × reps, charges</div>
-        </button>
-      </div>
-    </div>` : ''}
 
     <div class="pt-2 pb-10">
       <button onclick="pcQ2Sessions()"
@@ -15095,13 +15087,8 @@ function pcQ2Sessions() {
   const tpl = PROG_SESSIONS_TPL[_pc.type] || PROG_SESSIONS_TPL['PPL'];
   const freqs = Object.keys(tpl).map(Number).sort((a,b)=>a-b);
   const bestFreq = freqs.reduce((best,f) => Math.abs(f-_pc.frequence) < Math.abs(best-_pc.frequence) ? f : best, freqs[0]);
-  _pc.seances = (tpl[bestFreq]||tpl[freqs[0]]).map(nom => {
-    // Si l'utilisateur a choisi le format circuit au début → séances en circuit par défaut
-    if (_pc.circuitDefault && ['crossfit','bw','hyrox'].includes(_pc.discipline)) {
-      return { nom, exercices:[], type:'circuit', exos:[], circuitMode:'for_time', rounds:5, restBetweenRounds:0 };
-    }
-    return { nom, exercices:[] };
-  });
+  const _disc = _pc.discipline || 'muscu';
+  _pc.seances = (tpl[bestFreq]||tpl[freqs[0]]).map(nom => ({ nom, discipline: _disc, exercices:[] }));
   _pc.step = 'sessions';
   _pcSaveDraft();
   _pcRefresh(renderProgSessions());
@@ -15558,6 +15545,14 @@ function renderProgSessions() {
     { lbl:'L', di:1 }, { lbl:'M', di:2 }, { lbl:'Me', di:3 }, { lbl:'J', di:4 },
     { lbl:'V', di:5 }, { lbl:'S', di:6 }, { lbl:'D', di:0 }
   ];
+  const SESS_DISCS = [
+    { id:'muscu',    emoji:'🏋️', label:'Muscu' },
+    { id:'crossfit', emoji:'⚔️', label:'CrossFit' },
+    { id:'hyrox',   emoji:'🏁', label:'Hyrox' },
+    { id:'bw',      emoji:'🤸', label:'Poids corps' },
+    { id:'running', emoji:'🏃', label:'Course' },
+  ];
+
   const seancesHtml = _pc.seances.map((s, i) => {
     const exos = _pcGetExos(i);
     const isCirc = s.type === 'circuit';
@@ -15577,6 +15572,15 @@ function renderProgSessions() {
       </button>`;
     }).join('');
     const nbJours = (s.jours || []).length;
+    const curDisc = s.discipline || _pc.discipline || 'muscu';
+    const discPillsHtml = SESS_DISCS.map(d => {
+      const sel = d.id === curDisc;
+      return `<button onclick="event.stopPropagation();_pc.seances[${i}].discipline='${d.id}';_pcSaveDraft();_pcRefresh(renderProgSessions())"
+        onmousedown="event.stopPropagation()" ontouchstart="event.stopPropagation()"
+        class="flex-none px-2.5 py-1 rounded-full text-[11px] font-bold transition-all active:scale-90 ${sel ? 'bg-orange-500/20 text-orange-500' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500'}">
+        ${d.emoji} ${d.label}
+      </button>`;
+    }).join('');
 
     if (_pcSessSortMode) {
       return `
@@ -15618,6 +15622,11 @@ function renderProgSessions() {
             <span class="material-symbols-outlined text-sm">${isCirc ? 'loop' : (done ? 'edit' : 'add')}</span>
             ${isCirc ? 'Circuit' : (done ? 'Modifier' : 'Exercices')}
           </button>
+        </div>
+        <!-- Sélecteur de discipline -->
+        <div class="flex items-center gap-1.5 px-4 pb-2 pt-2 border-t border-slate-50 dark:border-slate-700 overflow-x-auto no-scrollbar">
+          <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider shrink-0">Sport :</span>
+          ${discPillsHtml}
         </div>
         <!-- Sélecteur de jours -->
         <div class="flex items-center gap-1.5 px-4 pb-3 border-t border-slate-50 dark:border-slate-700">
@@ -15726,7 +15735,7 @@ function _pcBuildResultsHtml(q) {
   const seance   = { exercices: _pcGetExos(_pc.curSeance) };
   const selected = seance.exercices.map(e => e.nom);
   const LIB      = _pcGetExoLib();
-  const disc2    = _pc.discipline || 'muscu';
+  const disc2    = _pc.seances[_pc.curSeance]?.discipline || _pc.discipline || 'muscu';
   const POPULAIRES_MAP = {
     muscu:    ['Tractions','Dips parallèles','Pompes explosives','Développé incliné haltères','Fente latérale','Montées de mollets debout'],
     crossfit: ['Tractions','Dips parallèles','Pompes explosives','Développé incliné haltères'],
@@ -15777,7 +15786,8 @@ function renderProgLibGroups() {
 
   const FEATURED_MUSCU = ['Pectoraux', 'Épaules', 'Dos', 'Quadriceps'];
   const FEATURED_LABEL = { 'Quadriceps': 'Jambes' };
-  const isMuscu = !_pc.discipline || _pc.discipline === 'muscu';
+  const _sessDisc2 = _pc.seances[_pc.curSeance]?.discipline || _pc.discipline || 'muscu';
+  const isMuscu = _sessDisc2 === 'muscu';
   const displayGroups = (_pcLibShowAll || !isMuscu) ? LIB : LIB.filter(g => FEATURED_MUSCU.includes(g.g));
 
   const groupGrid = displayGroups.map(grp => {
@@ -15803,7 +15813,7 @@ function renderProgLibGroups() {
     bw:       ['Tractions','Dips parallèles','Pompes explosives','Fente latérale','Gainage dynamique','Curl biceps couché'],
     running:  ['Fente latérale','Gainage dynamique','Montées de mollets debout'],
   };
-  const disc2 = _pc.discipline || 'muscu';
+  const disc2 = _sessDisc2;
   const POPULAIRES = POPULAIRES_MAP[disc2] || POPULAIRES_MAP.muscu;
   const exoResults = q
     ? LIB.flatMap(g => g.exos.filter(ex => ex.toLowerCase().includes(q)).map(ex => ({ex, grp:g.g, custom:!!(EXO_META[ex]?.custom)})))
@@ -15855,7 +15865,7 @@ function renderProgLibGroups() {
           <div class="h-full bg-[#0ddff2] transition-all" style="width:55%"></div>
         </div>
       </div>
-      ${['muscu','crossfit','bw','hyrox'].includes(_pc.discipline || 'muscu') ? (() => {
+      ${(() => {
         const _isCirc = _pc.seances[_pc.curSeance]?.type === 'circuit';
         const _on  = 'bg-white dark:bg-slate-700 text-slate-900 dark:text-white shadow-sm';
         const _off = 'text-slate-500 dark:text-slate-400';
@@ -15867,7 +15877,7 @@ function renderProgLibGroups() {
         <button onclick="_pcSetSeanceFormat('circuit')" class="flex-1 py-2.5 rounded-xl text-sm font-black transition-all active:scale-95 flex items-center justify-center gap-1.5 ${_isCirc ? _on : _off}">
           <span class="material-symbols-outlined text-base">loop</span> Circuit
         </button>
-      </div>`; })() : ''}
+      </div>`; })()}
       <div class="relative">
         <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <span class="material-symbols-outlined text-slate-400">search</span>
@@ -16080,21 +16090,25 @@ function _pcSetSeanceFormat(fmt) {
 function renderProgExosSelected() {
   const curSeance = _pc.seances[_pc.curSeance];
 
-  // Auto-tag WOD/Circuit/Hyrox seances
+  // Auto-tag WOD/Circuit séances (par séance selon s.discipline)
   if (!curSeance.type) {
-    const disc = _pc.discipline || '';
+    const disc = curSeance.discipline || _pc.discipline || '';
     const nom  = (curSeance.nom || '').toLowerCase();
-    if (disc === 'hyrox' && (nom.includes('simulation race') || nom.includes('course hyrox') || nom.includes('race officielle') || nom === 'simulation race')) {
-      curSeance.type = 'hyrox';
-    } else if ((disc === 'crossfit' || disc === 'hyrox' || disc === 'bw')
+    if ((disc === 'crossfit' || disc === 'hyrox' || disc === 'bw')
         && (nom.includes('wod') || nom.includes('circuit') || nom.includes('amrap') || nom.includes('emom'))) {
       curSeance.type = 'circuit';
     }
   }
 
-  // Hyrox Race mode → info card (structure fixe)
+  // Rétrocompat: type=hyrox (ancien) → circuit éditable avec stations officielles
   if (curSeance.type === 'hyrox') {
-    return renderHyroxRaceInfo();
+    curSeance.type = 'circuit';
+    if (!curSeance.circuitMode) curSeance.circuitMode = 'for_time';
+    if (curSeance.rounds === undefined) curSeance.rounds = 1;
+    if (curSeance.restBetweenRounds === undefined) curSeance.restBetweenRounds = 0;
+    if (!curSeance.exos || curSeance.exos.length === 0) {
+      curSeance.exos = _hyroxStationsToExos();
+    }
   }
 
   // Circuit mode → dedicated builder
@@ -16311,22 +16325,26 @@ function renderCircuitBuilder() {
   const pct       = Math.round(60 + ((idx+1)/total)*10);
 
   const MODE_BTNS = [
-    { id:'for_time',   icon:'bolt',    label:'⚡ For Time' },
-    { id:'emom',       icon:'timer',   label:'⏱ EMOM' },
+    { id:'for_time',  label:'⚡ For Time' },
+    { id:'emom',      label:'⏱ EMOM' },
+    { id:'amrap',     label:'⏳ AMRAP' },
+    { id:'with_rest', label:'🔁 Avec repos' },
   ];
 
-  const modeBtnsHtml = MODE_BTNS.map(m => `
+  const modeBtnsHtml = `<div class="grid grid-cols-2 gap-2 mb-4">${MODE_BTNS.map(m => `
     <button onclick="_setCircuitMode('${m.id}')"
-      class="flex-1 py-2.5 rounded-xl font-black text-sm transition-all active:scale-95
+      class="py-2.5 rounded-xl font-black text-sm transition-all active:scale-95
       ${mode === m.id ? 'bg-orange-500 text-white shadow-md' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}">
       ${m.label}
-    </button>`).join('');
+    </button>`).join('')}</div>`;
 
+  const isHyroxDisc = curSeance.discipline === 'hyrox';
   const _stepBtn = (onclick, sign) => `<button onclick="${onclick}" class="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center text-slate-500 font-bold text-base leading-none active:scale-90 shrink-0">${sign}</button>`;
   const exosHtml = exos.length === 0
-    ? `<div class="py-8 text-center text-slate-400 text-sm">
+    ? `<div class="py-6 text-center text-slate-400 text-sm">
         <span class="material-symbols-outlined text-3xl mb-2 block">fitness_center</span>
         Aucun mouvement — ajoute des exercices ci-dessous
+        ${isHyroxDisc ? `<div class="mt-4"><button onclick="_loadHyroxPreset()" class="px-4 py-2.5 bg-purple-500/20 text-purple-400 font-bold rounded-xl text-sm active:scale-95 transition-all">🏁 Charger les 8 stations officielles Hyrox</button></div>` : ''}
       </div>`
     : exos.map((exo, i) => {
         const grp = _pcGetExoLib().find(g => g.exos.includes(exo.nom));
@@ -16403,11 +16421,11 @@ function renderCircuitBuilder() {
       <!-- Mode d'exécution -->
       <div class="bg-orange-50 dark:bg-orange-900/15 border border-orange-200 dark:border-orange-800/30 rounded-2xl p-4">
         <p class="text-[10px] font-black uppercase tracking-widest text-orange-600 dark:text-orange-400 mb-3">Mode d'exécution</p>
-        <div class="flex gap-2 mb-4">${modeBtnsHtml}</div>
+        ${modeBtnsHtml}
 
-        <!-- Nombre de rounds -->
-        <div class="flex items-center justify-between ${mode === 'emom' ? 'mb-3' : ''}">
-          <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">${mode === 'emom' ? 'Nombre de minutes' : 'Nombre de rounds'}</span>
+        <!-- Rounds / minutes -->
+        <div class="flex items-center justify-between">
+          <span class="text-sm font-semibold text-slate-700 dark:text-slate-300">${mode === 'emom' || mode === 'amrap' ? 'Durée (minutes)' : 'Nombre de rounds'}</span>
           <div class="flex items-center gap-3">
             <button onclick="_adjRounds(-1)" class="w-9 h-9 rounded-full bg-white dark:bg-slate-700 shadow-sm border border-slate-100 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-300 active:scale-90">−</button>
             <span class="text-xl font-black text-slate-900 dark:text-slate-100 w-8 text-center">${rounds}</span>
@@ -16415,8 +16433,8 @@ function renderCircuitBuilder() {
           </div>
         </div>
 
-        ${mode !== 'emom' ? `
-        <!-- Repos entre rounds (toujours réglable) -->
+        ${mode === 'for_time' ? `
+        <!-- Repos optionnel (for_time) -->
         <div class="flex items-center justify-between mt-3 pt-3 border-t border-orange-100 dark:border-orange-800/30">
           <div>
             <span class="text-sm font-semibold text-slate-700 dark:text-slate-300 block">Repos entre rounds</span>
@@ -16429,13 +16447,32 @@ function renderCircuitBuilder() {
           </div>
         </div>` : ''}
 
+        ${mode === 'with_rest' ? `
+        <!-- Repos obligatoire (with_rest) -->
+        <div class="flex items-center justify-between mt-3 pt-3 border-t border-orange-100 dark:border-orange-800/30">
+          <div>
+            <span class="text-sm font-semibold text-slate-700 dark:text-slate-300 block">Repos entre rounds</span>
+            <span class="text-[10px] text-slate-400">${_hxFmtDuree(rest || 60)}</span>
+          </div>
+          <div class="flex items-center gap-3 shrink-0">
+            <button onclick="_adjRest(-30)" class="w-9 h-9 rounded-full bg-white dark:bg-slate-700 shadow-sm border border-slate-100 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-300 active:scale-90">−</button>
+            <span class="text-sm font-black text-slate-900 dark:text-slate-100 w-16 text-center">${_hxFmtDuree(rest || 60)}</span>
+            <button onclick="_adjRest(+30)" class="w-9 h-9 rounded-full bg-white dark:bg-slate-700 shadow-sm border border-slate-100 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-300 active:scale-90">+</button>
+          </div>
+        </div>` : ''}
+
         ${mode === 'emom' ? `
         <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">Chaque minute : effectue tous les mouvements de la liste, répète pendant ${rounds} min.</p>` : ''}
+        ${mode === 'amrap' ? `
+        <p class="text-xs text-slate-400 dark:text-slate-500 mt-2">Fais un maximum de rounds complets en ${rounds} min.</p>` : ''}
       </div>
 
       <!-- Exercices du circuit -->
       <div>
-        <p class="text-[10px] font-black uppercase tracking-widest text-slate-400 mb-3">Exercices du circuit</p>
+        <div class="flex items-center justify-between mb-3">
+          <p class="text-[10px] font-black uppercase tracking-widest text-slate-400">Exercices du circuit</p>
+          ${isHyroxDisc ? `<button onclick="_loadHyroxPreset()" class="text-[10px] font-black text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-full active:scale-95 transition-all">🏁 Preset Hyrox</button>` : ''}
+        </div>
         ${exosHtml}
         <button onclick="_pcLibGroup=null;_pcSearch='';_pcLibShowAll=false;_pcRefresh(renderProgLibGroups())"
           class="w-full border-2 border-dashed border-orange-300 dark:border-orange-700 rounded-xl py-3.5 text-orange-500 dark:text-orange-400 font-bold text-sm mt-2 active:scale-[0.98] transition-all">
@@ -16457,6 +16494,7 @@ function renderCircuitBuilder() {
 function _setCircuitMode(mode) {
   const s = _pc.seances[_pc.curSeance];
   s.circuitMode = mode;
+  if (mode === 'with_rest' && !s.restBetweenRounds) s.restBetweenRounds = 60;
   _pcRefresh(renderCircuitBuilder());
 }
 
@@ -16498,6 +16536,29 @@ function _adjCircuitExoRest(i, delta) {
 function _removeCircuitExo(i) {
   const s = _pc.seances[_pc.curSeance];
   if (s.exos) s.exos.splice(i, 1);
+  _pcRefresh(renderCircuitBuilder());
+}
+
+function _hyroxStationsToExos() {
+  return HYROX_STATIONS.map(st => {
+    const d = st.distance || '';
+    const mMatch = d.match(/^(\d+)m$/);
+    if (mMatch) return { nom: st.nom, reps: parseInt(mMatch[1]), unite: 'm', poids: 0 };
+    const rMatch = d.match(/^(\d+)/);
+    return { nom: st.nom, reps: rMatch ? parseInt(rMatch[1]) : 10, unite: 'reps', poids: 0 };
+  });
+}
+
+function _loadHyroxPreset() {
+  const s = _pc.seances[_pc.curSeance];
+  if (!s) return;
+  if (!s.type || s.type !== 'circuit') {
+    s.type = 'circuit';
+    if (!s.circuitMode) s.circuitMode = 'for_time';
+    if (s.rounds === undefined) s.rounds = 1;
+    if (s.restBetweenRounds === undefined) s.restBetweenRounds = 0;
+  }
+  s.exos = _hyroxStationsToExos();
   _pcRefresh(renderCircuitBuilder());
 }
 
@@ -17572,6 +17633,7 @@ function pcNextExo() { _pc.curExo++; _pcRefresh(renderProgConfigExo()); }
 function pcPrevExo() { _pc.curExo--; _pcRefresh(renderProgConfigExo()); }
 function _seanceDone(s) {
   return (s.exercices?.length > 0) || (s.type === 'circuit' && s.exos?.length > 0) || s.type === 'hyrox';
+  // Note: type='hyrox' kept as fallback for old sessions not yet migrated via the builder
 }
 
 /* ── Helpers universels : circuit + classique + hyrox cohabitent partout ── */
@@ -21147,9 +21209,13 @@ function _iaInjectProgramme(prog) {
       };
     })
   };
-  const progs = load(KEYS.programmes)||[];
+  let progs = load(KEYS.programmes)||[];
+  // Anti-doublons : une regénération remplace les anciens programmes IA du même nom
+  const dupCount = progs.filter(p => p.nom === programme.nom).length;
+  if (dupCount > 0) progs = progs.filter(p => p.nom !== programme.nom);
   progs.push(programme);
   save(KEYS.programmes, progs);
+  if (dupCount > 0) showToast(`♻️ Ancien programme « ${programme.nom} » remplacé`);
   const _launchTour = _iaW.fromOnboarding;
   _iaW.loading = false;
   closeModal();
@@ -21166,8 +21232,7 @@ function _iaInjectProgramme(prog) {
       // Ouvre directement le programme généré
       setTimeout(() => openEditProgramme(id), 300);
     }
-    _coachShow(id);
-    setTimeout(() => _coachOpen(), 400);
+    _coachShow(id); // bouton flottant visible — l'utilisateur ouvre le coach s'il le souhaite
     if (_launchTour) setTimeout(() => _tourStart('fitness'), 600);
   },200);
 }
@@ -23485,33 +23550,17 @@ function _sessApplyRestored(saved) {
     }
   }
   _sessTab = 'exo';
-  const so = document.getElementById('seance-overlay');
-  if (so) {
-    so.style.display = 'flex';
-    requestAnimationFrame(() => { so.style.transform = 'translateY(0)'; });
-  }
-  document.body.style.overflow = 'hidden';
-  _navHide();
-  try {
-    _sessRender();
-    _sessUpdateTimerDisplay();
-  } catch(e) {
-    console.error('_sessApplyRestored: render error', e);
-    // Si le rendu échoue, on referme l'overlay et on affiche le badge flottant
-    if (so) so.style.display = 'none';
-    document.body.style.overflow = '';
-    _navShow && _navShow();
-    const _badge = document.getElementById('sess-live-badge');
-    if (_badge) {
-      const _nameEl = document.getElementById('sess-live-name');
-      if (_nameEl) _nameEl.textContent = _sess?.seance?.nom || 'Séance en cours';
-      _badge.style.display = 'flex';
-    }
-    showToast('Séance en cours — appuie sur le badge pour reprendre');
+  // UX : ne PAS rouvrir le plein écran au lancement — badge discret,
+  // l'utilisateur reprend quand il veut d'un tap.
+  const _badge = document.getElementById('sess-live-badge');
+  if (_badge) {
+    const _nameEl = document.getElementById('sess-live-name');
+    if (_nameEl) _nameEl.textContent = _sess?.seance?.nom || 'Séance en cours';
+    _badge.style.display = 'flex';
   }
   _acquireWakeLock();
   _sessStartElapsed();
-  showToast('Séance restaurée ✅');
+  showToast('⏱ Séance en cours — appuie sur le badge pour reprendre');
 }
 
 function demarrerSeance() {
